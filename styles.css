@@ -1,0 +1,123 @@
+/* TEXTURA DE PAPEL PRINCIPAL */
+body {
+    background-color: #FAF9F6;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* Efecto de cinta adhesiva translúcida para las fotos (Tape Effect) */
+.tape-effect {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    width: 70px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 20;
+    pointer-events: none;
+}
+
+.tape-1 { transform: translateX(-50%) rotate(-4deg); }
+.tape-2 { transform: translateX(-50%) rotate(3deg); }
+.tape-3 { transform: translateX(-50%) rotate(-2deg); }
+
+/* Sombras suaves para tarjetas impresas */
+.printed-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Apertura de la solapa del sobre */
+.flap-open {
+    transform: rotateX(180deg);
+}
+
+/* Animaciones on-scroll sutiles (Fade In Up) */
+.animate-on-scroll {
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+}
+
+.animate-on-scroll.rotate-reset.is-visible {
+    /* Mantiene la rotación nativa pero quita el translate */
+    transform: translateY(0) rotate(var(--rot, 0deg)) !important;
+}
+
+/* Delays para el stagger */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+
+/* Animación de rotación para la música */
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.music-spinning {
+    animation: spin-slow 4s linear infinite;
+}
+
+/* PÉTALOS/HOJAS CAYENDO */
+.leaf {
+    position: absolute;
+    top: -5vh;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 20;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    80% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(15vw, 110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Acordeón (Regalos) */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out;
+}
+
+.accordion-content.open {
+    max-height: 500px;
+}
+
+.accordion-btn .indicator {
+    display: inline-block;
+    transition: transform 0.5s;
+}
+
+.accordion-btn[aria-expanded="true"] .indicator {
+    transform: rotate(45deg);
+}
+
+/* Respetar configuración del usuario */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .leaf {
+        display: none !important;
+    }
+}
