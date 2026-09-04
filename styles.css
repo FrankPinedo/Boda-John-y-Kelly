@@ -1,123 +1,195 @@
-/* TEXTURA DE PAPEL PRINCIPAL */
+/* Custom CSS for Kelly & John André - Premium */
+:root {
+  --ivory: #F4EFEB;
+  --terracotta: #8D4024;
+  --espresso: #3E2723;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    background-color: #FAF9F6;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+    color: var(--espresso);
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Efecto de cinta adhesiva translúcida para las fotos (Tape Effect) */
-.tape-effect {
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    width: 70px;
-    height: 30px;
-    background-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    z-index: 20;
-    pointer-events: none;
+.bg-fixed-wedding {
+    background-image: url('./assets/fondo-boda.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--ivory); /* fallback */
 }
 
-.tape-1 { transform: translateX(-50%) rotate(-4deg); }
-.tape-2 { transform: translateX(-50%) rotate(3deg); }
-.tape-3 { transform: translateX(-50%) rotate(-2deg); }
-
-/* Sombras suaves para tarjetas impresas */
-.printed-card {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; 
 }
 
-/* Apertura de la solapa del sobre */
-.flap-open {
+body.no-scroll {
+    overflow: hidden !important;
+}
+
+::selection {
+    background: rgba(141, 64, 36, 0.2);
+    color: var(--terracotta);
+}
+
+/* Envelope 3D environment */
+#envelope-scene {
+    perspective: 1200px;
+}
+
+.envelope-wrapper {
+    transform-style: preserve-3d;
+    transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1), opacity 1s ease;
+}
+
+.envelope-flap {
+    transform-origin: top;
+    transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+    transform-style: preserve-3d;
+}
+
+.envelope-flap.open {
     transform: rotateX(180deg);
 }
 
-/* Animaciones on-scroll sutiles (Fade In Up) */
-.animate-on-scroll {
-    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+/* Inner letter scaling transition */
+#inner-letter {
+    transition: all 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+    background-image: url('./assets/fondo-boda.jpg');
+    background-size: cover;
+    background-position: center;
+    transform-origin: center center;
 }
 
-.animate-on-scroll.is-visible {
-    opacity: 1 !important;
-    transform: translateY(0) scale(1) !important;
+/* The state when the letter expands to full screen */
+#inner-letter.expand-fullscreen {
+    position: fixed;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 60;
+    border-radius: 0;
+    transform: none !important;
 }
 
-.animate-on-scroll.rotate-reset.is-visible {
-    /* Mantiene la rotación nativa pero quita el translate */
-    transform: translateY(0) rotate(var(--rot, 0deg)) !important;
-}
-
-/* Delays para el stagger */
-.delay-100 { transition-delay: 100ms; }
-.delay-200 { transition-delay: 200ms; }
-.delay-300 { transition-delay: 300ms; }
-
-/* Animación de rotación para la música */
-@keyframes spin-slow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-.music-spinning {
-    animation: spin-slow 4s linear infinite;
-}
-
-/* PÉTALOS/HOJAS CAYENDO */
-.leaf {
-    position: absolute;
-    top: -5vh;
+.envelope-slide-down {
+    transform: translateY(120vh) scale(0.9);
     opacity: 0;
+}
+
+/* Seal Pulse Animation */
+@keyframes pulse {
+    0% { transform: scale(1) translate(-50%, -50%); }
+    50% { transform: scale(1.08) translate(-46%, -46%); }
+    100% { transform: scale(1) translate(-50%, -50%); }
+}
+
+.seal-pulse {
+    animation: pulse 2s infinite cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Custom 3D Drop Shadow for PNG photos */
+.photo-3d {
+    filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.12));
+}
+
+/* Continuous Falling Petals */
+.petal {
+    position: fixed;
+    top: -10vh;
+    will-change: transform, top, left, opacity;
     pointer-events: none;
-    z-index: 20;
-    animation: fall linear infinite;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    z-index: 40;
 }
 
 @keyframes fall {
     0% {
-        transform: translate(0, 0) rotate(0deg);
+        transform: translateY(0) rotate(0deg);
         opacity: 0;
     }
-    10% {
-        opacity: 0.8;
-    }
-    80% {
-        opacity: 0.8;
-    }
+    10% { opacity: 0.9; }
+    80% { opacity: 0.9; }
     100% {
-        transform: translate(15vw, 110vh) rotate(360deg);
+        transform: translateY(110vh) rotate(360deg);
         opacity: 0;
     }
 }
 
-/* Acordeón (Regalos) */
+/* Reveal animations for scroll (slower and luxurious) */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.5s cubic-bezier(0.25, 0.1, 0.25, 1), 
+                transform 1.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Audio Control */
+#audio-control {
+    position: fixed;
+    bottom: max(20px, env(safe-area-inset-bottom));
+    right: 20px;
+    background: var(--espresso);
+    color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(62, 39, 35, 0.3);
+    z-index: 100;
+    transition: opacity 0.8s ease, transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    opacity: 0;
+    pointer-events: none;
+}
+
+#audio-control.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#audio-control:hover {
+    transform: scale(1.1);
+}
+
+#audio-control.muted {
+    background: transparent;
+    color: var(--espresso);
+    border: 1px solid var(--espresso);
+}
+
+/* Accordion */
 .accordion-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.7s ease-in-out;
+    transition: max-height 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-.accordion-content.open {
-    max-height: 500px;
+.accordion-btn[aria-expanded="true"] + .accordion-content {
+    max-height: 350px;
 }
 
-.accordion-btn .indicator {
-    display: inline-block;
-    transition: transform 0.5s;
-}
-
-.accordion-btn[aria-expanded="true"] .indicator {
+.accordion-btn[aria-expanded="true"] .icon-plus {
     transform: rotate(45deg);
 }
 
-/* Respetar configuración del usuario */
-@media (prefers-reduced-motion: reduce) {
-    *, ::before, ::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-    .leaf {
-        display: none !important;
-    }
+.icon-plus {
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }

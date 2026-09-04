@@ -2,495 +2,340 @@
 <html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boda Kelly & John André</title>
-    
-    <!-- Google Fonts: Playfair Display para elegancia serif, Montserrat para cuerpo limpio -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Kelly & John André — Nos Casamos</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        terracotta: { DEFAULT: '#B85C47', 600: '#A34B38', 700: '#8E3F2E' }, // Terracota intenso solicitado
-                        primary: '#4A4036', // Tono sepia/grisáceo oscuro solicitado para texto
-                        bgbase: '#FAF9F6', // Beige muy claro solicitado
-                        olive: '#8A8B73',
-                        rose: '#D4B8B1'
+                        terracotta: '#8D4024',
+                        espresso: '#3E2723',
+                        ivory: '#F4EFEB',
+                        envelope: '#F9F6F0',
                     },
                     fontFamily: {
-                        serif: ['"Playfair Display"', 'serif'],
-                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Cinzel', 'serif'],
+                        script: ['"Great Vibes"', 'cursive'],
                     },
                     letterSpacing: {
-                        widest: '.25em',
-                        superwide: '.35em',
+                        editorial: '0.15em',
+                        ultrawide: '0.25em',
                     }
                 }
             }
         }
     </script>
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="text-primary font-sans antialiased overflow-hidden selection:bg-terracotta selection:text-white">
+<body class="bg-fixed-wedding text-espresso font-serif no-scroll relative">
 
-    <!-- REUSABLE SVG ASSETS (Flores Acuarela y Divisores) -->
-    <svg style="display: none;">
-        <defs>
-            <!-- Hoja suelta para animación -->
-            <g id="falling-leaf">
-                <path d="M10,0 C15,5 15,15 10,20 C5,15 5,5 10,0 Z" fill="#B85C47" opacity="0.6"/>
-            </g>
-            <g id="falling-leaf-alt">
-                <path d="M10,0 C20,10 15,20 10,25 C0,15 5,5 10,0 Z" fill="#8A8B73" opacity="0.5"/>
-            </g>
-
-            <!-- Floral Cluster Acuarela (Terracota, Verde Olivo, Rosa Viejo) -->
-            <g id="floral-cluster">
-                <!-- Manchas acuarela -->
-                <circle cx="50" cy="50" r="30" fill="#B85C47" opacity="0.12" filter="blur(6px)" />
-                <circle cx="70" cy="35" r="20" fill="#8A8B73" opacity="0.15" filter="blur(4px)" />
-                <circle cx="35" cy="70" r="25" fill="#D4B8B1" opacity="0.2" filter="blur(5px)" />
-                
-                <!-- Trazos botánicos -->
-                <!-- Hojas olivo -->
-                <path d="M50,50 C60,30 80,20 90,35 C90,35 75,45 50,50 Z" fill="#8A8B73" opacity="0.3" stroke="#8A8B73" stroke-width="0.5"/>
-                <path d="M50,50 C40,20 20,15 10,30 C10,30 30,40 50,50 Z" fill="#8A8B73" opacity="0.2" stroke="#8A8B73" stroke-width="0.5"/>
-                <!-- Flores -->
-                <path d="M50,50 C45,35 60,30 65,45 C70,60 55,65 50,50 Z" stroke="#B85C47" stroke-width="1" fill="none" />
-                <path d="M50,50 C35,45 30,60 45,65 C60,70 65,55 50,50 Z" stroke="#D4B8B1" stroke-width="1" fill="none" />
-                <path d="M50,50 C40,65 55,75 65,65 C75,55 60,40 50,50 Z" stroke="#4A4036" stroke-width="0.5" fill="none" opacity="0.5"/>
-                <!-- Detalles -->
-                <circle cx="65" cy="45" r="1.5" fill="#B85C47" />
-                <circle cx="45" cy="65" r="1" fill="#4A4036" opacity="0.5" />
-                <circle cx="55" cy="60" r="1.5" fill="#D4B8B1" />
-            </g>
-
-            <!-- Divisor Elegante -->
-            <g id="elegant-divider">
-                <line x1="0" y1="50" x2="45" y2="50" stroke="#B85C47" stroke-width="0.5" opacity="0.5"/>
-                <path d="M50,45 L55,50 L50,55 L45,50 Z" fill="#B85C47" opacity="0.7"/>
-                <line x1="55" y1="50" x2="100" y2="50" stroke="#B85C47" stroke-width="0.5" opacity="0.5"/>
-            </g>
-        </defs>
-    </svg>
-
-    <!-- AUDIO PLAYER -->
-    <audio id="bg-music" loop preload="auto">
-        <source src="/audio/wedding.mp3" type="audio/mpeg">
+    <!-- Audio Player -->
+    <audio id="bg-audio" loop preload="auto">
+        <source src="./assets/audio.mp3" type="audio/mpeg">
     </audio>
-
-    <button id="music-toggle" class="fixed bottom-8 right-8 z-40 w-12 h-12 bg-white/90 backdrop-blur-md rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.1)] border border-[#FAF9F6] flex items-center justify-center text-terracotta opacity-0 pointer-events-none transition-all duration-1000 hover:scale-110">
-        <!-- Icono de disco que gira -->
-        <svg id="music-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
+    <div id="audio-control" aria-label="Toggle music">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
         </svg>
-    </button>
+    </div>
 
-    <!-- CONTENEDOR DE HOJAS CAYENDO -->
-    <div id="leaves-container" class="fixed inset-0 pointer-events-none z-30 overflow-hidden"></div>
+    <!-- Petals Container -->
+    <div id="petals-container" class="fixed inset-0 pointer-events-none z-40 overflow-hidden"></div>
 
-    <!-- PANTALLA INICIAL: SOBRE FÍSICO 3D -->
-    <div id="envelope-overlay" class="fixed inset-0 z-50 flex items-center justify-center bg-bgbase transition-all duration-1000">
-        <!-- Textura de papel ya aplicada al body se heredará visualmente o podemos forzarla -->
-        <div id="envelope" class="relative w-[90vw] max-w-[340px] h-[480px] cursor-pointer group" style="perspective: 1200px;">
+    <!-- STAGE 01: ENVELOPE -->
+    <div id="envelope-stage" class="fixed inset-0 z-50 flex items-center justify-center bg-[#E5E0D8] transition-opacity duration-[1500ms]">
+        <div id="envelope-scene" class="relative w-[90vw] max-w-[420px] aspect-[4/3] cursor-pointer">
             
-            <!-- Parte trasera del sobre -->
-            <div class="absolute inset-0 bg-white rounded-sm shadow-[0_10px_30px_rgba(0,0,0,0.1)] overflow-hidden border border-[#EAE5D9]">
-                <!-- Ruido interno -->
-                <div class="absolute inset-0 opacity-40 bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22 opacity=%220.05%22/%3E%3C/svg%3E')]"></div>
-            </div>
-
-            <!-- La Carta (Interior) -->
-            <div id="letter" class="absolute left-4 right-4 top-4 bottom-4 bg-[#FAF9F6] shadow-[inset_0_0_20px_rgba(0,0,0,0.03)] flex flex-col items-center justify-center p-8 text-center transition-all duration-[1200ms] ease-[cubic-bezier(0.25,1,0.5,1)] z-10 border border-[#EAE5D9]">
-                <svg class="w-24 h-24 mb-4" viewBox="0 0 100 100">
-                    <use href="#floral-cluster"></use>
-                </svg>
-                <h1 class="font-serif italic text-4xl text-terracotta mb-2 leading-tight">Kelly <br><span class="text-3xl">&</span><br> John André</h1>
-                <p class="font-sans text-[10px] tracking-superwide text-primary uppercase mt-8">14 · 11 · 2026</p>
-            </div>
-
-            <!-- Solapas del sobre -->
-            <div class="absolute inset-0 z-20 pointer-events-none">
-                <div class="absolute inset-0 bg-[#FDFCFB] drop-shadow-[2px_0_4px_rgba(0,0,0,0.06)] border-r border-[#EAE5D9]/50" style="clip-path: polygon(0 0, 50% 50%, 0 100%);"></div>
-                <div class="absolute inset-0 bg-[#FDFCFB] drop-shadow-[-2px_0_4px_rgba(0,0,0,0.06)] border-l border-[#EAE5D9]/50" style="clip-path: polygon(100% 0, 50% 50%, 100% 100%);"></div>
-                <div class="absolute inset-0 bg-white drop-shadow-[0_-2px_6px_rgba(0,0,0,0.08)] border-t border-[#EAE5D9]" style="clip-path: polygon(0 100%, 50% 50%, 100% 100%);"></div>
-            </div>
-            
-            <!-- Solapa superior (La que se abre) -->
-            <div id="flap-top" class="absolute inset-0 z-30 origin-top transition-transform duration-[900ms] ease-in-out">
-                <div class="w-full h-full bg-[#FAF9F6] drop-shadow-[0_5px_8px_rgba(0,0,0,0.12)] border-b border-[#EAE5D9] flex items-end justify-center pb-6" style="clip-path: polygon(0 0, 50% 50%, 100% 0);"></div>
-            </div>
-            
-            <!-- Sello de cera -->
-            <div id="wax-seal" class="absolute top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-[#B85C47] rounded-full z-40 flex items-center justify-center shadow-[0_6px_12px_rgba(184,92,71,0.3)] transition-all duration-[600ms] border-[2px] border-[#8E3F2E] group-hover:scale-105 group-hover:shadow-[0_8px_20px_rgba(184,92,71,0.4)]">
-                <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center shadow-inner">
-                    <span class="font-serif italic text-white/95 text-lg tracking-tighter">K&J</span>
+            <div id="envelope-wrapper" class="envelope-wrapper relative w-full h-full shadow-[0_25px_50px_rgba(0,0,0,0.15)]">
+                
+                <!-- Back of envelope -->
+                <div class="absolute inset-0 bg-[#F4EFEB]" style="box-shadow: inset 0 0 40px rgba(0,0,0,0.06);"></div>
+                
+                <!-- Inner letter peeking (This will scale up to be the background) -->
+                <div id="inner-letter" class="absolute left-2 right-2 top-2 bottom-4 rounded-sm shadow-[inset_0_0_15px_rgba(0,0,0,0.1)] flex justify-center pt-8 border border-white/40">
+                    <!-- We can hide the monogram when expanding -->
+                    <div id="inner-monogram" class="transition-opacity duration-500 font-script text-5xl text-espresso opacity-70">K & J</div>
                 </div>
-            </div>
-            
-            <div id="open-text" class="absolute -bottom-20 left-0 right-0 text-center text-primary/60 text-[10px] tracking-superwide uppercase animate-pulse transition-opacity duration-300">
-                Toque para abrir
+                
+                <!-- Side flaps -->
+                <div class="absolute inset-0 bg-[#F9F6F0] drop-shadow-[0_0_15px_rgba(0,0,0,0.08)]" style="clip-path: polygon(0 0, 52% 52%, 0 100%);"></div>
+                <div class="absolute inset-0 bg-[#F9F6F0] drop-shadow-[0_0_15px_rgba(0,0,0,0.08)]" style="clip-path: polygon(100% 0, 48% 52%, 100% 100%);"></div>
+                
+                <!-- Bottom flap -->
+                <div class="absolute inset-0 bg-[#FDFBF7] drop-shadow-[0_-5px_20px_rgba(0,0,0,0.12)]" style="clip-path: polygon(0 100%, 50% 48%, 100% 100%);"></div>
+                
+                <!-- Thread -->
+                <img src="./assets/hilo-dorado.png" class="absolute top-[48%] left-0 w-full opacity-90 z-10 pointer-events-none drop-shadow-[0px_6px_3px_rgba(0,0,0,0.35)]">
+                
+                <!-- Flower (behind seal) -->
+                <img src="./assets/flor-seca-sello.png" class="absolute top-[48%] left-1/2 -translate-x-[65%] -translate-y-1/2 w-32 md:w-40 rotate-[-12deg] drop-shadow-lg z-20 pointer-events-none">
+                
+                <!-- Top flap (Animates open) -->
+                <div id="envelope-flap" class="envelope-flap absolute inset-0 z-30">
+                    <div class="absolute inset-0 bg-[#FFFFFF]" style="clip-path: polygon(0 0, 50% 52%, 100% 0); box-shadow: 0 10px 20px rgba(0,0,0,0.15);"></div>
+                </div>
+                
+                <!-- Seal -->
+                <div id="envelope-seal" class="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 seal-pulse">
+                    <img src="./assets/sello-cera.png" alt="Sello" class="w-24 h-24 md:w-28 md:h-28 drop-shadow-[0_8px_15px_rgba(0,0,0,0.3)] hover:brightness-110 transition-all">
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <main id="main-content" class="hidden opacity-0 transition-opacity duration-[1500ms] relative">
+    <!-- MAIN INVITATION (Inside body with bg-fixed-wedding) -->
+    <main id="main-content" class="relative opacity-0 transition-opacity duration-[1500ms] hidden pb-20 z-10 overflow-x-hidden w-full max-w-full">
         
-        <!-- ==============================================
-             HERO (Estilo Editorial)
-             ============================================== -->
-        <section class="relative min-h-[90vh] flex flex-col items-center justify-center pt-24 pb-12 px-6 overflow-hidden">
-            <!-- Flores Acuarela Esquinas -->
-            <div class="absolute top-0 left-0 w-64 h-64 md:w-96 md:h-96 opacity-70 transform -translate-x-1/4 -translate-y-1/4">
-                <svg viewBox="0 0 100 100"><use href="#floral-cluster"></use></svg>
+        <!-- Corner flowers top -->
+        <img src="./assets/flores-esquina-izquierda.png" alt="" class="absolute top-0 left-0 w-48 md:w-64 opacity-90 pointer-events-none z-10">
+        <img src="./assets/flores-esquina-derecha.png" alt="" class="absolute top-0 right-0 w-48 md:w-64 opacity-90 pointer-events-none z-10">
+
+        <!-- TITLE SECTION -->
+        <section class="relative flex flex-col items-center text-center pt-32 pb-12 z-20">
+            <p class="reveal text-sm tracking-ultrawide uppercase text-terracotta mb-4 font-medium">1 Corintios 13:4</p>
+            <p class="reveal text-base md:text-lg text-espresso/90 max-w-sm px-6 mb-16 italic leading-[1.8]">
+                "El amor es paciente, es bondadoso. El amor no es envidioso ni presumido ni orgulloso."
+            </p>
+            
+            <p class="reveal text-lg tracking-ultrawide uppercase text-espresso mb-8">¡Nos Casamos!</p>
+            
+            <!-- Graphic Names -->
+            <div class="reveal w-full px-4 mb-12">
+                <img src="./assets/kelly-y-jhon.png" alt="Kelly y John André" class="max-w-[80%] mx-auto h-auto drop-shadow-sm">
+            </div>
+        </section>
+
+        <!-- FULL WIDTH PHOTO 5 (Hero Image) -->
+        <section class="relative w-full z-10 mb-16">
+            <div class="reveal w-full">
+                <img src="./assets/5.png" alt="Pareja" class="w-full h-auto block photo-3d">
+            </div>
+        </section>
+
+        <!-- INTRODUCTION -->
+        <section class="relative px-6 py-8 text-center z-20 max-w-2xl mx-auto">
+            <p class="reveal text-lg md:text-xl text-espresso font-medium leading-[1.9] mb-16">
+                Querida familia y amigos, queremos celebrar con ustedes de manera oficial que uniremos nuestras vidas. Su compañía es lo que hará este día realmente especial; los esperamos con mucha ilusión.
+            </p>
+
+            <!-- PARENTS -->
+            <div class="reveal mb-16">
+                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-4">Padres de la Novia</p>
+                <p class="text-xl text-espresso mb-1">Telesforo Pinedo</p>
+                <p class="text-xl text-espresso mb-10">Aurolinda Cabañas</p>
+
+                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-4">Padres del Novio</p>
+                <p class="text-xl text-espresso mb-1">Luis Vera</p>
+                <p class="text-xl text-espresso mb-12">Carmen Delgado</p>
+                
+                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-4">Padrinos</p>
+                <p class="text-xl text-espresso mb-1">Carlos Mendoza</p>
+                <p class="text-xl text-espresso mb-12">Patricia Vargas</p>
+            </div>
+        </section>
+            
+        <!-- FULL WIDTH PHOTO 1 -->
+        <section class="relative w-full z-10 mb-16">
+            <div class="reveal w-full">
+                <img src="./assets/1.png" alt="Familia" class="w-full h-auto block photo-3d">
+            </div>
+        </section>
+
+        <section class="relative px-6 text-center z-20 max-w-2xl mx-auto">
+            <!-- DATE CALENDAR BLOCK -->
+            <div class="reveal flex items-center justify-center max-w-sm mx-auto border-y-2 border-espresso/30 py-6 mb-16">
+                <div class="text-right pr-6 border-r border-espresso/30">
+                    <p class="text-xl tracking-widest text-espresso font-bold uppercase">Sábado</p>
+                </div>
+                <div class="px-8 text-center">
+                    <p class="text-sm uppercase text-terracotta font-bold mb-1">NOV</p>
+                    <p class="text-7xl text-espresso font-bold leading-none">14</p>
+                    <p class="text-sm text-espresso mt-2 font-medium">2026</p>
+                </div>
+                <div class="text-left pl-6 border-l border-espresso/30">
+                    <p class="text-xl tracking-widest text-espresso font-bold uppercase">4:00 PM</p>
+                </div>
+            </div>
+
+            <!-- COUNTDOWN -->
+            <div class="reveal mb-16">
+                <p class="text-xs tracking-ultrawide uppercase text-terracotta mb-8 font-bold">Faltan</p>
+                <div class="flex justify-center gap-6 text-espresso font-bold text-4xl">
+                    <div class="flex flex-col items-center"><span id="days">00</span><span class="text-[10px] text-espresso/80 uppercase tracking-widest mt-2 font-medium">Días</span></div>
+                    <span class="text-espresso/30 pb-4 font-normal">:</span>
+                    <div class="flex flex-col items-center"><span id="hours">00</span><span class="text-[10px] text-espresso/80 uppercase tracking-widest mt-2 font-medium">Hrs</span></div>
+                    <span class="text-espresso/30 pb-4 font-normal">:</span>
+                    <div class="flex flex-col items-center"><span id="mins">00</span><span class="text-[10px] text-espresso/80 uppercase tracking-widest mt-2 font-medium">Min</span></div>
+                    <span class="text-espresso/30 pb-4 font-normal">:</span>
+                    <div class="flex flex-col items-center"><span id="secs">00</span><span class="text-[10px] text-espresso/80 uppercase tracking-widest mt-2 font-medium">Seg</span></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Center Flower Divider -->
+        <div class="reveal w-full flex justify-center mb-16 opacity-90">
+            <img src="./assets/flores-centro.png" alt="" class="w-40 h-auto">
+        </div>
+
+        <!-- ITINERARY -->
+        <section class="relative px-6 text-center z-20 max-w-lg mx-auto">
+            <!-- Ceremony -->
+            <div class="reveal mb-16">
+                <svg class="w-14 h-14 mx-auto mb-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1v2H9V7zm5 0h1v2h-1V7zm-5 4h1v2H9v-2zm5 0h1v2h-1v-2zm-3 4h2a2 2 0 11-2 2v-2z"></path>
+                </svg>
+                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-3">Ceremonia</p>
+                <p class="text-3xl text-espresso font-bold mb-2">Parroquia Ntra. Sra. del Carmen</p>
+                <p class="text-base text-espresso/80 mb-5">Máncora</p>
+                <p class="text-2xl text-espresso font-bold mb-8">4:00 PM</p>
+                <a href="#" class="inline-block px-10 py-4 bg-espresso text-ivory text-xs uppercase tracking-widest hover:bg-terracotta transition-colors shadow-lg">Cómo llegar</a>
+            </div>
+        </section>
+
+        <!-- FULL WIDTH PHOTO 2 -->
+        <section class="relative w-full z-10 mb-16">
+            <div class="reveal w-full">
+                <img src="./assets/2.png" alt="Iglesia" class="w-full h-auto block photo-3d">
+            </div>
+        </section>
+
+        <section class="relative px-6 text-center z-20 max-w-lg mx-auto">
+            <!-- Reception -->
+            <div class="reveal mb-20">
+                <svg class="w-14 h-14 mx-auto mb-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21H3m6-10v10m6-10v10M6 7l6 4 6-4-6-4-6 4z"></path>
+                    <circle cx="12" cy="11" r="2"></circle>
+                </svg>
+                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-3">Recepción</p>
+                <p class="text-3xl text-espresso font-bold mb-2">Casa de Playa Olas del Mar</p>
+                <p class="text-base text-espresso/80 mb-5">Máncora, Piura</p>
+                <p class="text-2xl text-espresso font-bold mb-8">5:30 PM</p>
+                <a href="#" class="inline-block px-10 py-4 bg-espresso text-ivory text-xs uppercase tracking-widest hover:bg-terracotta transition-colors shadow-lg">Cómo llegar</a>
             </div>
             
-            <!-- Foto 5 (Hero Polaroid) -->
-            <div class="relative z-10 w-full max-w-[85vw] md:max-w-xl mb-16 animate-on-scroll rotate-reset opacity-0 translate-y-12" style="--rot: -2deg;">
-                <div class="tape-effect tape-1"></div>
-                <img src="images/5.png" alt="Kelly y John André" class="w-full h-auto border-[12px] md:border-[16px] border-white shadow-[2px_4px_16px_rgba(0,0,0,0.15)] object-cover bg-white pb-10">
-                <p class="absolute bottom-3 left-0 right-0 text-center font-serif italic text-primary/60 text-sm md:text-base">Nuestro Matrimonio</p>
-                
-                <div class="absolute -bottom-16 -right-16 w-48 h-48 opacity-80 pointer-events-none rotate-12">
-                    <svg viewBox="0 0 100 100"><use href="#floral-cluster"></use></svg>
-                </div>
-            </div>
+            <!-- Corner flowers (rotated) -->
+            <img src="./assets/flores-esquina-izquierda.png" alt="" class="absolute -top-32 right-0 w-48 md:w-64 opacity-70 pointer-events-none z-0 scale-x-[-1]">
+            <img src="./assets/flores-esquina-derecha.png" alt="" class="absolute -bottom-10 -left-10 w-48 md:w-64 opacity-30 pointer-events-none z-0 scale-x-[-1] transform scale-75">
             
-            <!-- Título Principal -->
-            <div class="text-center z-10 animate-on-scroll opacity-0 translate-y-8 delay-300 w-full">
-                <h1 class="font-serif italic text-5xl md:text-7xl lg:text-8xl text-terracotta tracking-tight leading-tight mb-6">
-                    Kelly <br class="md:hidden"><span class="font-serif text-3xl md:text-5xl text-primary mx-4">&</span><br class="md:hidden"> John André
-                </h1>
-                <p class="font-sans text-[10px] md:text-xs tracking-superwide uppercase text-primary/70">14 · 11 · 2026</p>
-            </div>
-        </section>
-
-        <div class="flex justify-center my-12 animate-on-scroll opacity-0">
-            <svg class="w-32 h-4" viewBox="0 0 100 100" preserveAspectRatio="none"><use href="#elegant-divider"></use></svg>
-        </div>
-
-        <!-- ==============================================
-             FRASE PRINCIPAL
-             ============================================== -->
-        <section class="py-20 px-8 relative flex justify-center text-center">
-            <div class="max-w-3xl mx-auto z-10 animate-on-scroll opacity-0 translate-y-8">
-                <p class="font-serif italic text-3xl md:text-5xl text-terracotta leading-[1.6] text-balance">
-                    "El amor no consiste en mirarse el uno al otro, sino en mirar juntos en la misma dirección."
+            <!-- DRESS CODE -->
+            <div class="reveal mb-20 relative z-20">
+                <div class="flex justify-center gap-4 mb-6 text-terracotta">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                </div>
+                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-3">Código de Vestimenta</p>
+                <p class="text-4xl text-espresso font-bold mb-6">FORMAL</p>
+                <p class="text-base text-espresso font-medium leading-relaxed max-w-sm mx-auto">
+                    Nos reservamos el color <span class="font-bold text-terracotta">Blanco</span> y tonos claros exclusivamente para la novia. Evitar sus variaciones.
                 </p>
             </div>
         </section>
-
-        <!-- ==============================================
-             FAMILIA (Tipografía y espacio)
-             ============================================== -->
-        <section class="py-24 px-6 relative">
-            <!-- Foto 2 esparcida: Bautizo -->
-            <div class="absolute -left-12 top-10 w-48 md:w-72 z-0 animate-on-scroll rotate-reset opacity-0 opacity-60 hidden md:block" style="--rot: 4deg;">
-                <img src="images/2.png" class="w-full h-auto border-[8px] border-white shadow-[2px_4px_12px_rgba(0,0,0,0.12)] filter grayscale opacity-40">
-            </div>
-
-            <div class="max-w-4xl mx-auto text-center relative z-10 animate-on-scroll opacity-0 translate-y-8">
-                <h3 class="font-sans text-[10px] tracking-superwide text-primary uppercase mb-20 text-balance">Con la bendición de nuestros padres</h3>
-                
-                <div class="flex flex-col md:flex-row justify-center gap-20 md:gap-32">
-                    <div>
-                        <h4 class="font-sans text-[9px] tracking-widest text-olive uppercase mb-6 border-b border-olive/30 inline-block pb-2">Padres de la Novia</h4>
-                        <p class="font-serif italic text-3xl text-terracotta mb-2">Telesforo Pinedo</p>
-                        <p class="font-serif italic text-3xl text-terracotta">Aurolinda Cabañas</p>
-                    </div>
-                    <div>
-                        <h4 class="font-sans text-[9px] tracking-widest text-olive uppercase mb-6 border-b border-olive/30 inline-block pb-2">Padres del Novio</h4>
-                        <p class="font-serif italic text-3xl text-terracotta mb-2">Luis Vera</p>
-                        <p class="font-serif italic text-3xl text-terracotta">Carmen Delgado</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOTO SUELTA 1: Familia (Entre Padres y Padrinos) -->
-        <section class="py-12 flex justify-center md:justify-end px-12 overflow-hidden">
-            <div class="relative w-full max-w-[280px] md:max-w-sm animate-on-scroll rotate-reset opacity-0 translate-y-12 z-10" style="--rot: 3deg;">
-                <div class="tape-effect tape-2"></div>
-                <img src="images/1.png" alt="Familia" class="w-full h-auto border-[10px] border-white shadow-[2px_4px_14px_rgba(0,0,0,0.15)] bg-white pb-8">
-                <p class="absolute bottom-2 right-4 font-serif italic text-primary/50 text-xs">Familia</p>
-            </div>
-        </section>
-
-        <!-- ==============================================
-             PADRINOS Y TESTIGOS
-             ============================================== -->
-        <section class="py-16 px-6 relative">
-            <!-- Decoración floral sutil -->
-            <div class="absolute right-0 top-0 w-64 h-64 opacity-50 transform translate-x-1/3">
-                <svg viewBox="0 0 100 100"><use href="#floral-cluster"></use></svg>
-            </div>
-
-            <div class="max-w-3xl mx-auto text-center animate-on-scroll opacity-0 translate-y-8 relative z-10">
-                <div class="flex flex-col md:flex-row justify-center gap-16 md:gap-32">
-                    <div>
-                        <h4 class="font-sans text-[9px] tracking-superwide text-primary uppercase mb-6">Padrinos</h4>
-                        <p class="font-serif italic text-2xl text-terracotta mb-2">Carlos Mendoza</p>
-                        <p class="font-serif italic text-2xl text-terracotta">Patricia Vargas</p>
-                    </div>
-                    <div>
-                        <h4 class="font-sans text-[9px] tracking-superwide text-primary uppercase mb-6">Testigos</h4>
-                        <p class="font-serif italic text-2xl text-terracotta mb-2">Fernando Ríos</p>
-                        <p class="font-serif italic text-2xl text-terracotta">Lucía Torres</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="flex justify-center my-16 animate-on-scroll opacity-0">
-            <svg class="w-32 h-4" viewBox="0 0 100 100" preserveAspectRatio="none"><use href="#elegant-divider"></use></svg>
+        
+        <!-- Center Flower Divider -->
+        <div class="reveal w-full flex justify-center mb-16 opacity-90">
+            <img src="./assets/flores-centro.png" alt="" class="w-32 h-auto scale-y-[-1]">
         </div>
 
-        <!-- ==============================================
-             CONTADOR (Minimalista de papel)
-             ============================================== -->
-        <section class="py-20 px-6 relative text-center">
-            <div class="max-w-3xl mx-auto animate-on-scroll opacity-0 scale-95">
-                <p class="font-serif italic text-3xl text-terracotta mb-12">14 de Noviembre de 2026</p>
-                
-                <div id="countdown" class="grid grid-cols-4 gap-4 max-w-xl mx-auto">
-                    <div class="flex flex-col items-center">
-                        <span id="days" class="font-serif italic text-5xl md:text-6xl text-primary font-normal mb-4">00</span>
-                        <span class="font-sans text-[9px] tracking-superwide text-olive uppercase">Días</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <span id="hours" class="font-serif italic text-5xl md:text-6xl text-primary font-normal mb-4">00</span>
-                        <span class="font-sans text-[9px] tracking-superwide text-olive uppercase">Horas</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <span id="minutes" class="font-serif italic text-5xl md:text-6xl text-primary font-normal mb-4">00</span>
-                        <span class="font-sans text-[9px] tracking-superwide text-olive uppercase">Min</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <span id="seconds" class="font-serif italic text-5xl md:text-6xl text-primary font-normal mb-4">00</span>
-                        <span class="font-sans text-[9px] tracking-superwide text-olive uppercase">Seg</span>
-                    </div>
-                </div>
+        <!-- FULL WIDTH PHOTO 4 -->
+        <section class="relative w-full z-10">
+            <div class="reveal w-full">
+                <img src="./assets/4.png" alt="Dress code" class="w-full h-auto block photo-3d">
             </div>
         </section>
 
-        <!-- FOTO SUELTA 2: Bautizo (Centro izquierda) -->
-        <section class="py-16 flex justify-center md:justify-start px-8 overflow-hidden">
-            <div class="relative w-full max-w-[300px] md:max-w-sm animate-on-scroll rotate-reset opacity-0 translate-y-12 z-10 md:ml-20" style="--rot: -2.5deg;">
-                <div class="tape-effect tape-3"></div>
-                <img src="images/2.png" alt="Bautizo" class="w-full h-auto border-[10px] border-white shadow-[2px_4px_14px_rgba(0,0,0,0.15)] bg-white pb-8">
-            </div>
-        </section>
-
-        <!-- ==============================================
-             CEREMONIA Y RECEPCIÓN
-             ============================================== -->
-        <section class="py-20 px-6 relative">
-            <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-10 pointer-events-none">
-                <svg viewBox="0 0 100 100"><use href="#floral-cluster"></use></svg>
-            </div>
-
-            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 relative z-10">
-                <!-- Ceremonia -->
-                <div class="flex flex-col items-center text-center animate-on-scroll opacity-0 translate-y-8 bg-white/50 backdrop-blur-sm printed-card p-10 border border-[#EAE5D9]">
-                    <svg class="w-8 h-8 text-terracotta mb-6 stroke-[1px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01"/>
-                    </svg>
-                    
-                    <h3 class="font-sans text-[9px] tracking-superwide text-primary uppercase mb-6 border-b border-terracotta/30 pb-2">Ceremonia</h3>
-                    <p class="font-serif italic text-3xl text-terracotta mb-4">4:00 PM</p>
-                    <p class="font-serif text-xl text-primary mb-2">Parroquia Nuestra Señora del Carmen</p>
-                    <p class="font-sans text-primary/70 text-sm mb-10 leading-relaxed">Máncora</p>
-                    
-                    <a href="https://maps.app.goo.gl/ejemplo-iglesia" target="_blank" class="font-sans text-[9px] tracking-[0.2em] uppercase text-primary border-b border-primary hover:text-terracotta hover:border-terracotta transition-colors pb-1">
-                        Cómo llegar
-                    </a>
-                </div>
-
-                <!-- Recepción -->
-                <div class="flex flex-col items-center text-center animate-on-scroll opacity-0 translate-y-8 delay-100 bg-white/50 backdrop-blur-sm printed-card p-10 border border-[#EAE5D9]">
-                    <svg class="w-8 h-8 text-terracotta mb-6 stroke-[1px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"/>
-                    </svg>
-                    
-                    <h3 class="font-sans text-[9px] tracking-superwide text-primary uppercase mb-6 border-b border-terracotta/30 pb-2">Recepción</h3>
-                    <p class="font-serif italic text-3xl text-terracotta mb-4">5:30 PM</p>
-                    <p class="font-serif text-xl text-primary mb-2">Casa de Playa Olas del Mar</p>
-                    <p class="font-sans text-primary/70 text-sm mb-10 leading-relaxed">Máncora, Piura</p>
-                    
-                    <a href="https://maps.app.goo.gl/ejemplo-playa" target="_blank" class="font-sans text-[9px] tracking-[0.2em] uppercase text-primary border-b border-primary hover:text-terracotta hover:border-terracotta transition-colors pb-1">
-                        Cómo llegar
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOTO SUELTA 3: Cumpleaños -->
-        <section class="py-8 flex justify-center px-4 overflow-hidden">
-            <div class="relative w-full max-w-[320px] animate-on-scroll rotate-reset opacity-0 translate-y-12 z-10" style="--rot: 1.5deg;">
-                <div class="tape-effect tape-1"></div>
-                <img src="images/4.png" alt="Momentos" class="w-full h-auto border-[10px] border-white shadow-[2px_4px_14px_rgba(0,0,0,0.15)] bg-white pb-8">
-            </div>
-        </section>
-
-        <div class="flex justify-center my-10 animate-on-scroll opacity-0">
-            <svg class="w-32 h-4" viewBox="0 0 100 100" preserveAspectRatio="none"><use href="#elegant-divider"></use></svg>
-        </div>
-
-        <!-- ==============================================
-             CÓDIGO DE VESTIMENTA
-             ============================================== -->
-        <section class="py-16 px-6 text-center relative">
-            <div class="max-w-2xl mx-auto animate-on-scroll opacity-0 translate-y-8">
-                <h3 class="font-sans text-[9px] tracking-superwide text-primary uppercase mb-6">Código de Vestimenta</h3>
-                <p class="font-serif italic text-4xl md:text-5xl text-terracotta mb-8">Formal</p>
-                <p class="font-sans text-primary/80 mb-10 text-sm leading-[2] tracking-wider">
-                    Reserva los tonos blanco y beige claro exclusivamente para la novia.
+        <!-- OVERLAPPING GIFTS CARD -->
+        <section class="relative px-4 z-20 flex justify-center" style="margin-top: -80px;">
+            <div class="reveal w-full max-w-[95%] sm:max-w-lg mx-auto bg-[#FAF8F5]/95 backdrop-blur-sm rounded-xl shadow-[0_-15px_40px_rgba(0,0,0,0.1)] p-8 md:p-10 text-center border border-white/60">
+                <svg class="w-14 h-14 mx-auto mb-6 text-terracotta drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                </svg>
+                <h3 class="font-script text-6xl text-terracotta mb-6">Sugerencia de Regalos</h3>
+                <p class="text-base text-espresso font-medium mb-10 leading-[1.8]">
+                    Tu cariño es nuestro mejor regalo, pero si desean tener un detalle especial con nosotros, lo recibiremos con mucho amor y gratitud.
                 </p>
-            </div>
-        </section>
-
-        <!-- ==============================================
-             REGALOS (Papelería fina acordeón)
-             ============================================== -->
-        <section class="py-20 px-6 relative">
-            <div class="max-w-xl mx-auto text-center animate-on-scroll opacity-0 translate-y-8 relative z-10">
                 
-                <h2 class="font-serif italic text-3xl md:text-4xl text-terracotta mb-6">Tu presencia es nuestro mejor regalo</h2>
-                <p class="font-sans text-primary/80 text-sm mb-12 leading-[2] tracking-wider px-4">
-                    Si deseas tener un detalle adicional con nosotros, te compartimos nuestra información bancaria.
-                </p>
-
-                <!-- Acordeones -->
-                <div class="space-y-4 text-left">
-                    <div class="border-b border-[#EAE5D9]">
-                        <button class="accordion-btn w-full py-5 flex justify-between items-center focus:outline-none group" aria-expanded="false">
-                            <span class="font-serif text-xl text-primary group-hover:text-terracotta transition-colors">BCP</span>
-                            <span class="text-terracotta text-2xl font-light transition-transform duration-500 indicator">+</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="py-6 space-y-6">
-                                <div>
-                                    <p class="font-sans text-[8px] tracking-[0.2em] text-olive uppercase mb-2">Cuenta</p>
-                                    <div class="flex justify-between items-end border-b border-[#EAE5D9] pb-2">
-                                        <span class="font-sans font-light text-primary tracking-widest" id="bcp-cuenta">191-0000000-0-00</span>
-                                        <button class="copy-btn font-sans text-[8px] tracking-[0.2em] text-terracotta uppercase hover:font-bold transition-all" data-copy="bcp-cuenta">Copiar</button>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="font-sans text-[8px] tracking-[0.2em] text-olive uppercase mb-2">CCI</p>
-                                    <div class="flex justify-between items-end border-b border-[#EAE5D9] pb-2">
-                                        <span class="font-sans font-light text-primary tracking-widest" id="bcp-cci">002191000000000000</span>
-                                        <button class="copy-btn font-sans text-[8px] tracking-[0.2em] text-terracotta uppercase hover:font-bold transition-all" data-copy="bcp-cci">Copiar</button>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="font-sans text-[8px] tracking-[0.2em] text-olive uppercase mb-1">Titular</p>
-                                    <p class="font-serif italic text-xl text-terracotta">Kelly Pinedo Cabañas</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="border-b border-[#EAE5D9]">
-                        <button class="accordion-btn w-full py-5 flex justify-between items-center focus:outline-none group" aria-expanded="false">
-                            <span class="font-serif text-xl text-primary group-hover:text-terracotta transition-colors">Interbank</span>
-                            <span class="text-terracotta text-2xl font-light transition-transform duration-500 indicator">+</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="py-6 space-y-6">
-                                <div>
-                                    <p class="font-sans text-[8px] tracking-[0.2em] text-olive uppercase mb-2">Cuenta</p>
-                                    <div class="flex justify-between items-end border-b border-[#EAE5D9] pb-2">
-                                        <span class="font-sans font-light text-primary tracking-widest" id="interbank-cuenta">200-0000000-0-00</span>
-                                        <button class="copy-btn font-sans text-[8px] tracking-[0.2em] text-terracotta uppercase hover:font-bold transition-all" data-copy="interbank-cuenta">Copiar</button>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="font-sans text-[8px] tracking-[0.2em] text-olive uppercase mb-2">CCI</p>
-                                    <div class="flex justify-between items-end border-b border-[#EAE5D9] pb-2">
-                                        <span class="font-sans font-light text-primary tracking-widest" id="interbank-cci">003200000000000000</span>
-                                        <button class="copy-btn font-sans text-[8px] tracking-[0.2em] text-terracotta uppercase hover:font-bold transition-all" data-copy="interbank-cci">Copiar</button>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="font-sans text-[8px] tracking-[0.2em] text-olive uppercase mb-1">Titular</p>
-                                    <p class="font-serif italic text-xl text-terracotta">John André Vera Delgado</p>
-                                </div>
-                            </div>
+                <div class="border border-espresso/15 rounded-lg mb-4 text-left overflow-hidden shadow-sm">
+                    <button class="accordion-btn w-full px-6 py-5 flex justify-between items-center text-espresso bg-white font-bold" aria-expanded="false">
+                        <span class="text-lg">BCP</span>
+                        <span class="icon-plus text-2xl font-light text-terracotta">+</span>
+                    </button>
+                    <div class="accordion-content bg-[#FAF8F5]">
+                        <div class="px-6 py-5 space-y-4">
+                            <p class="text-xs uppercase tracking-widest text-espresso/70">Cuenta: <span class="font-bold text-espresso text-base ml-2">191-0000000-0-00</span></p>
+                            <p class="text-xs uppercase tracking-widest text-espresso/70">CCI: <span class="font-bold text-espresso text-base ml-2">002191000000000000</span></p>
+                            <p class="text-xs uppercase tracking-widest text-espresso/70">Titular: <span class="font-bold text-terracotta text-base ml-2">Kelly Pinedo</span></p>
                         </div>
                     </div>
                 </div>
-                
-                <div id="copy-feedback" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/95 backdrop-blur-sm border border-[#EAE5D9] shadow-2xl px-10 py-8 text-center opacity-0 transition-opacity duration-500 pointer-events-none z-50">
-                    <p class="font-serif italic text-3xl text-terracotta">Copiado</p>
+                <div class="border border-espresso/15 rounded-lg text-left overflow-hidden shadow-sm">
+                    <button class="accordion-btn w-full px-6 py-5 flex justify-between items-center text-espresso bg-white font-bold" aria-expanded="false">
+                        <span class="text-lg">Interbank</span>
+                        <span class="icon-plus text-2xl font-light text-terracotta">+</span>
+                    </button>
+                    <div class="accordion-content bg-[#FAF8F5]">
+                        <div class="px-6 py-5 space-y-4">
+                            <p class="text-xs uppercase tracking-widest text-espresso/70">Cuenta: <span class="font-bold text-espresso text-base ml-2">200-0000000-0-00</span></p>
+                            <p class="text-xs uppercase tracking-widest text-espresso/70">CCI: <span class="font-bold text-espresso text-base ml-2">003200000000000000</span></p>
+                            <p class="text-xs uppercase tracking-widest text-espresso/70">Titular: <span class="font-bold text-terracotta text-base ml-2">John André Vera</span></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ==============================================
-             NIÑOS
-             ============================================== -->
-        <section class="py-16 px-6 text-center">
-            <div class="max-w-2xl mx-auto animate-on-scroll opacity-0 translate-y-8">
-                <h3 class="font-serif italic text-3xl text-primary mb-6">Solo para adultos</h3>
-                <p class="font-sans text-primary/70 leading-[2] text-sm tracking-wider">
-                    Amamos a sus pequeños, pero hemos decidido que nuestra boda sea un evento exclusivo para adultos. ¡Gracias por su comprensión!
+        <!-- FULL WIDTH PHOTO 3 (Closing Photo) -->
+        <section class="relative w-full z-10 mt-16 mb-16">
+            <div class="reveal w-full">
+                <img src="./assets/3.png" alt="Nosotros" class="w-full h-auto block photo-3d">
+            </div>
+        </section>
+
+        <!-- KIDS SECTION -->
+        <section class="relative px-6 py-8 text-center z-20 max-w-md mx-auto">
+            <div class="reveal">
+                <svg class="w-14 h-14 mx-auto mb-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-5">Recomendación sobre los más pequeños</p>
+                <p class="text-base text-espresso font-medium leading-relaxed">
+                    Adoramos a sus pequeños, sin embargo, este evento está destinado solo para adultos. ¡Esperamos su comprensión!
                 </p>
             </div>
         </section>
-
-        <!-- ==============================================
-             RSVP
-             ============================================== -->
-        <section class="py-24 px-6 text-center relative">
-            <!-- Flores Acuarela Esquinas -->
-            <div class="absolute bottom-0 left-0 w-64 h-64 opacity-50 transform -translate-x-1/4 translate-y-1/4">
-                <svg viewBox="0 0 100 100"><use href="#floral-cluster"></use></svg>
-            </div>
-
-            <div class="max-w-3xl mx-auto animate-on-scroll opacity-0 translate-y-8 relative z-10">
-                <h3 class="font-sans text-[9px] tracking-superwide text-terracotta uppercase mb-10">Confirmación</h3>
-                <p class="font-serif italic text-3xl md:text-4xl text-primary mb-12 text-balance leading-relaxed">Esperamos contar contigo.</p>
-                
-                <div class="flex flex-col sm:flex-row justify-center gap-8">
-                    <a href="https://wa.me/51900000000?text=¡Hola Kelly! Confirmo mi asistencia a la boda." target="_blank" class="font-sans text-[10px] tracking-[0.2em] uppercase text-primary border-b border-primary hover:text-terracotta hover:border-terracotta transition-colors pb-2">
-                        Confirmar con la Novia
-                    </a>
-                    
-                    <a href="https://wa.me/51900000001?text=¡Hola John André! Confirmo mi asistencia a la boda." target="_blank" class="font-sans text-[10px] tracking-[0.2em] uppercase text-primary border-b border-primary hover:text-terracotta hover:border-terracotta transition-colors pb-2">
-                        Confirmar con el Novio
-                    </a>
+        
+        <!-- CLOSING & RSVP -->
+        <section class="relative px-6 pb-32 text-center z-20 max-w-lg mx-auto pt-10 flex flex-col items-center">
+            <!-- Center flowers closing -->
+            <img src="./assets/flores-centro.png" alt="" class="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 md:w-56 opacity-80 pointer-events-none z-0">
+            
+            <div class="reveal mb-16 relative z-10">
+                <p class="text-xl text-espresso font-medium italic mb-10 max-w-sm mx-auto leading-[1.8]">
+                    "Nuestro amor es la promesa que sembramos en silencio y que, día tras día, florece con la verdad de dos almas que eligieron caminar juntas para siempre."
+                </p>
+                <svg class="w-12 h-12 mx-auto mb-5 text-terracotta drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-5">Confirmación</p>
+                <p class="text-base text-espresso font-medium mb-10 leading-[1.7]">
+                    Con mucha alegría, queremos compartir contigo uno de los momentos más especiales de nuestras vidas. ¡Te esperamos!
+                </p>
+                <div class="flex flex-col gap-5 max-w-sm mx-auto">
+                    <a href="https://wa.me/51900000000?text=¡Hola%20Kelly!%20Confirmo%20mi%20asistencia%20a%20la%20boda%20💍" target="_blank" class="block w-full py-5 border-2 border-espresso bg-white/50 backdrop-blur-sm rounded-full text-espresso text-sm font-bold uppercase tracking-widest hover:bg-espresso hover:text-ivory transition-all shadow-md">Confirmar a: Novia</a>
+                    <a href="https://wa.me/51900000001?text=¡Hola%20John%20André!%20Confirmo%20mi%20asistencia%20a%20la%20boda%20💍" target="_blank" class="block w-full py-5 border-2 border-espresso bg-white/50 backdrop-blur-sm rounded-full text-espresso text-sm font-bold uppercase tracking-widest hover:bg-espresso hover:text-ivory transition-all shadow-md">Confirmar a: Novio</a>
                 </div>
             </div>
-        </section>
-
-        <!-- ==============================================
-             CIERRE EMOCIONAL (Polaroid final)
-             ============================================== -->
-        <section class="relative min-h-[90vh] flex flex-col items-center justify-center py-24 px-4 overflow-hidden">
-            <!-- Foto 3 como Polaroid de Cierre pegada sobre el fondo -->
-            <div class="relative z-10 w-full max-w-[80vw] md:max-w-lg mb-16 animate-on-scroll rotate-reset opacity-0 translate-y-12" style="--rot: -1deg;">
-                <div class="tape-effect tape-2"></div>
-                <img src="images/3.png" alt="Cierre" class="w-full h-auto border-[12px] md:border-[16px] border-white shadow-[2px_4px_16px_rgba(0,0,0,0.15)] object-cover bg-white pb-10">
-            </div>
             
-            <div class="relative z-10 text-center animate-on-scroll opacity-0 translate-y-8 flex flex-col items-center w-full px-6">
-                <h2 class="font-serif italic text-4xl md:text-5xl lg:text-6xl mb-4 text-terracotta">Kelly <span class="text-3xl md:text-4xl text-primary mx-2">&</span> John André</h2>
-                <p class="font-sans text-[9px] tracking-superwide uppercase text-primary/60 mt-4 mb-10">14 · 11 · 2026</p>
-                <p class="font-serif italic text-2xl text-primary">Gracias por acompañarnos.</p>
+            <div class="reveal mt-20 relative z-10">
+                <img src="./assets/kelly-y-jhon.png" alt="Kelly y John André" class="max-w-[70%] mx-auto h-auto drop-shadow-sm mb-4 opacity-90">
+                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold">14 · 11 · 2026</p>
             </div>
         </section>
-
     </main>
 
     <script src="script.js"></script>
