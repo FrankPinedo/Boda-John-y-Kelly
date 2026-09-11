@@ -59,9 +59,9 @@
                 <div class="absolute inset-0 bg-[#F4EFEB]" style="box-shadow: inset 0 0 40px rgba(0,0,0,0.06);"></div>
                 
                 <!-- Inner letter peeking (This will scale up to be the background) -->
-                <div id="inner-letter" class="absolute left-2 right-2 top-2 bottom-4 rounded-sm shadow-[inset_0_0_15px_rgba(0,0,0,0.1)] flex justify-center pt-8 border border-white/40">
+                <div id="inner-letter" class="absolute left-2 right-2 top-2 bottom-4 rounded-sm shadow-[inset_0_0_15px_rgba(0,0,0,0.1)] flex justify-center pt-10 border border-white/40">
                     <!-- We can hide the monogram when expanding -->
-                    <div id="inner-monogram" class="transition-opacity duration-500 font-script text-5xl text-espresso opacity-70">K & J</div>
+                    <img id="inner-monogram" src="./assets/kelly-y-jhon.png" alt="Kelly y John" class="w-3/4 max-w-[160px] h-auto transition-opacity duration-500 opacity-80 object-contain">
                 </div>
                 
                 <!-- Side flaps -->
@@ -74,8 +74,7 @@
                 <!-- Thread -->
                 <img src="./assets/hilo-dorado.png" class="absolute top-[48%] left-0 w-full opacity-90 z-10 pointer-events-none drop-shadow-[0px_6px_3px_rgba(0,0,0,0.35)]">
                 
-                <!-- Flower (behind seal) -->
-                <img src="./assets/flor-seca-sello.png" class="absolute top-[48%] left-1/2 -translate-x-[65%] -translate-y-1/2 w-32 md:w-40 rotate-[-12deg] drop-shadow-lg z-20 pointer-events-none">
+                <!-- Flower removed -->
                 
                 <!-- Top flap (Animates open) -->
                 <div id="envelope-flap" class="envelope-flap absolute inset-0 z-30">
@@ -84,7 +83,12 @@
                 
                 <!-- Seal -->
                 <div id="envelope-seal" class="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 seal-pulse">
-                    <img src="./assets/sello-cera.png" alt="Sello" class="w-24 h-24 md:w-28 md:h-28 drop-shadow-[0_8px_15px_rgba(0,0,0,0.3)] hover:brightness-110 transition-all">
+                    <img src="./assets/sello-cera.png" alt="Sello" class="w-20 h-20 md:w-24 md:h-24 drop-shadow-[0_8px_15px_rgba(0,0,0,0.3)] hover:brightness-110 transition-all">
+                </div>
+                
+                <!-- Instruction Message -->
+                <div class="absolute top-[80%] left-1/2 -translate-x-1/2 w-full text-center z-50 pointer-events-none">
+                    <p class="text-xs md:text-sm tracking-widest uppercase text-terracotta font-bold opacity-90 animate-pulse">Toca para descubrir nuestra historia</p>
                 </div>
             </div>
         </div>
@@ -99,22 +103,26 @@
 
         <!-- TITLE SECTION -->
         <section class="relative flex flex-col items-center text-center pt-32 pb-12 z-20">
-            <p class="reveal text-sm tracking-ultrawide uppercase text-terracotta mb-4 font-medium">1 Corintios 13:4</p>
+            <p class="reveal text-sm tracking-ultrawide uppercase text-terracotta mb-4 font-medium">Colosenses 3:14</p>
             <p class="reveal text-base md:text-lg text-espresso/90 max-w-sm px-6 mb-16 italic leading-[1.8]">
-                "El amor es paciente, es bondadoso. El amor no es envidioso ni presumido ni orgulloso."
+                “Y sobre todo esto, vestíos de amor, que es el vínculo perfecto.”
             </p>
             
-            <p class="reveal text-lg tracking-ultrawide uppercase text-espresso mb-8">¡Nos Casamos!</p>
+            <p class="reveal text-2xl md:text-3xl font-bold tracking-ultrawide uppercase text-espresso mb-10">¡Nos Casamos!</p>
             
             <!-- Graphic Names -->
-            <div class="reveal w-full px-4 mb-12">
+            <div class="reveal w-full px-4 mb-8">
                 <img src="./assets/kelly-y-jhon.png" alt="Kelly y John André" class="max-w-[80%] mx-auto h-auto drop-shadow-sm">
             </div>
+            
+            <p class="reveal text-xl md:text-2xl text-terracotta italic font-medium mt-4">
+                “Donde el mar sea testigo”
+            </p>
         </section>
 
         <!-- FULL WIDTH PHOTO 5 (Hero Image) -->
         <section class="relative w-full z-10 mb-16">
-            <div class="reveal w-full">
+            <div class="reveal w-full max-w-5xl mx-auto">
                 <img src="./assets/5.png" alt="Pareja" class="w-full h-auto block photo-3d">
             </div>
         </section>
@@ -128,22 +136,25 @@
             <!-- PARENTS -->
             <div class="reveal mb-16">
                 <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-4">Padres de la Novia</p>
-                <p class="text-xl text-espresso mb-1">Telesforo Pinedo</p>
-                <p class="text-xl text-espresso mb-10">Aurolinda Cabañas</p>
+                <p class="text-xl text-espresso mb-1">Telefesforo Pinedo Comeca</p>
+                <p class="text-xl text-espresso mb-10">Aurolinda Cabañas Calampa</p>
 
-                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-4">Padres del Novio</p>
-                <p class="text-xl text-espresso mb-1">Luis Vera</p>
-                <p class="text-xl text-espresso mb-12">Carmen Delgado</p>
+                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-4">Madre del Novio</p>
+                <p class="text-xl text-espresso mb-12">Carmen Ada Delgado Rodríguez</p>
                 
                 <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-4">Padrinos</p>
-                <p class="text-xl text-espresso mb-1">Carlos Mendoza</p>
-                <p class="text-xl text-espresso mb-12">Patricia Vargas</p>
+                <p class="text-xl text-espresso mb-1">Rodney Pinedo Cabañas</p>
+                <p class="text-xl text-espresso mb-12">Jessica Kattiana Zapata</p>
+
+                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-4">Testigos</p>
+                <p class="text-xl text-espresso mb-1">Kevin Cabañas Santillan</p>
+                <p class="text-xl text-espresso mb-12">Jobita Mestanza Oliva</p>
             </div>
         </section>
             
         <!-- FULL WIDTH PHOTO 1 -->
         <section class="relative w-full z-10 mb-16">
-            <div class="reveal w-full">
+            <div class="reveal w-full max-w-5xl mx-auto">
                 <img src="./assets/1.png" alt="Familia" class="w-full h-auto block photo-3d">
             </div>
         </section>
@@ -156,7 +167,7 @@
                 </div>
                 <div class="px-8 text-center">
                     <p class="text-sm uppercase text-terracotta font-bold mb-1">NOV</p>
-                    <p class="text-7xl text-espresso font-bold leading-none">14</p>
+                    <p class="text-7xl text-espresso font-bold leading-none">07</p>
                     <p class="text-sm text-espresso mt-2 font-medium">2026</p>
                 </div>
                 <div class="text-left pl-6 border-l border-espresso/30">
@@ -177,6 +188,11 @@
                     <div class="flex flex-col items-center"><span id="secs">00</span><span class="text-[10px] text-espresso/80 uppercase tracking-widest mt-2 font-medium">Seg</span></div>
                 </div>
             </div>
+            
+            <!-- ITINERARY IMAGE -->
+            <div class="reveal w-full max-w-sm mx-auto mb-16 px-4">
+                <img src="./assets/itinerario.png" alt="Itinerario" class="w-full h-auto drop-shadow-md">
+            </div>
         </section>
         
         <!-- Center Flower Divider -->
@@ -184,56 +200,77 @@
             <img src="./assets/flores-centro.png" alt="" class="w-40 h-auto">
         </div>
 
-        <!-- ITINERARY -->
-        <section class="relative px-6 text-center z-20 max-w-lg mx-auto">
-            <!-- Ceremony -->
-            <div class="reveal mb-16">
+        <!-- ITINERARY / UBICACIONES -->
+        <section class="relative px-6 text-center z-20 max-w-4xl mx-auto md:flex md:justify-center md:gap-16">
+            <!-- Parroquia -->
+            <div class="reveal mb-16 md:mb-0 md:w-1/2">
                 <svg class="w-14 h-14 mx-auto mb-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1v2H9V7zm5 0h1v2h-1V7zm-5 4h1v2H9v-2zm5 0h1v2h-1v-2zm-3 4h2a2 2 0 11-2 2v-2z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 </svg>
-                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-3">Ceremonia</p>
-                <p class="text-3xl text-espresso font-bold mb-2">Parroquia Ntra. Sra. del Carmen</p>
-                <p class="text-base text-espresso/80 mb-5">Máncora</p>
-                <p class="text-2xl text-espresso font-bold mb-8">4:00 PM</p>
-                <a href="#" class="inline-block px-10 py-4 bg-espresso text-ivory text-xs uppercase tracking-widest hover:bg-terracotta transition-colors shadow-lg">Cómo llegar</a>
+                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-3">Ceremonia Religiosa</p>
+                <p class="text-3xl text-espresso font-bold mb-2">Parroquia Rosa de Santa María</p>
+                <p class="text-base text-espresso/80 mb-8">Los Órganos, Piura</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Parroquia+Rosa+de+Santa+Mar%C3%ADa+Los+%C3%93rganos+Piura" target="_blank" class="inline-block px-10 py-4 bg-espresso text-ivory text-xs uppercase tracking-widest hover:bg-terracotta transition-colors shadow-lg">Ver en Mapa</a>
+            </div>
+
+            <!-- Zona Puerto Antiguo -->
+            <div class="reveal mb-16 md:mb-0 md:w-1/2">
+                <svg class="w-14 h-14 mx-auto mb-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-3">Ceremonia Civil</p>
+                <p class="text-3xl text-espresso font-bold mb-2">Zona Puerto Antiguo</p>
+                <p class="text-base text-espresso/80 mb-8">Los Órganos, Piura</p>
+                <a href="https://www.google.com/maps/search/Puerto+Antiguo+Los+%C3%93rganos+Piura/@-4.1724634,-81.1261573,17.21z?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="inline-block px-10 py-4 bg-espresso text-ivory text-xs uppercase tracking-widest hover:bg-terracotta transition-colors shadow-lg">Ver en Mapa</a>
             </div>
         </section>
 
         <!-- FULL WIDTH PHOTO 2 -->
         <section class="relative w-full z-10 mb-16">
-            <div class="reveal w-full">
-                <img src="./assets/2.png" alt="Iglesia" class="w-full h-auto block photo-3d">
+            <div class="reveal w-full max-w-5xl mx-auto">
+                <img src="./assets/2.png" alt="Locación" class="w-full h-auto block photo-3d">
             </div>
         </section>
 
         <section class="relative px-6 text-center z-20 max-w-lg mx-auto">
-            <!-- Reception -->
-            <div class="reveal mb-20">
-                <svg class="w-14 h-14 mx-auto mb-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21H3m6-10v10m6-10v10M6 7l6 4 6-4-6-4-6 4z"></path>
-                    <circle cx="12" cy="11" r="2"></circle>
-                </svg>
-                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-3">Recepción</p>
-                <p class="text-3xl text-espresso font-bold mb-2">Casa de Playa Olas del Mar</p>
-                <p class="text-base text-espresso/80 mb-5">Máncora, Piura</p>
-                <p class="text-2xl text-espresso font-bold mb-8">5:30 PM</p>
-                <a href="#" class="inline-block px-10 py-4 bg-espresso text-ivory text-xs uppercase tracking-widest hover:bg-terracotta transition-colors shadow-lg">Cómo llegar</a>
-            </div>
-            
             <!-- Corner flowers (rotated) -->
             <img src="./assets/flores-esquina-izquierda.png" alt="" class="absolute -top-32 right-0 w-48 md:w-64 opacity-70 pointer-events-none z-0 scale-x-[-1]">
             <img src="./assets/flores-esquina-derecha.png" alt="" class="absolute -bottom-10 -left-10 w-48 md:w-64 opacity-30 pointer-events-none z-0 scale-x-[-1] transform scale-75">
             
-            <!-- DRESS CODE -->
-            <div class="reveal mb-20 relative z-20">
-                <div class="flex justify-center gap-4 mb-6 text-terracotta">
-                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            <!-- IMPORTANT DETAILS -->
+            <div class="reveal mb-20 relative z-20 mt-10">
+                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-3">Información para nuestros invitados</p>
+                <p class="text-4xl text-espresso font-bold mb-16">Detalles importantes</p>
+                
+                <div class="space-y-12 md:space-y-0 md:grid md:grid-cols-3 md:gap-8 text-center max-w-4xl mx-auto">
+                    <!-- Point 1 -->
+                    <div class="flex flex-col items-center">
+                        <svg class="w-10 h-10 text-terracotta mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M12 3a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7v1H2v-1a7 7 0 0 1 7-7h1V5.73A2 2 0 0 1 12 3z"/>
+                          <circle cx="12" cy="7" r="1"/>
+                        </svg>
+                        <p class="text-xl text-espresso font-bold mb-2 uppercase tracking-widest">Formal</p>
+                        <p class="text-base text-espresso/80 leading-relaxed">Elegante y cómodo para una celebración junto al mar.</p>
+                    </div>
+                    <!-- Point 2 -->
+                    <div class="flex flex-col items-center">
+                        <svg class="w-10 h-10 text-terracotta mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 21v-2.25m-6.364-.386l1.591-1.591M3 12h2.25m.386-6.364l1.591 1.591M12 18a6 6 0 100-12 6 6 0 000 12z" />
+                        </svg>
+                        <p class="text-xl text-espresso font-bold mb-2 uppercase tracking-widest">20–27 °C</p>
+                        <p class="text-base text-espresso/80 leading-relaxed">Cálido por la tarde y más fresco al caer la noche.</p>
+                    </div>
+                    <!-- Point 3 -->
+                    <div class="flex flex-col items-center">
+                        <svg class="w-10 h-10 text-terracotta mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 12h11.25a2.25 2.25 0 000-4.5H12M3 16.5h8.25a2.25 2.25 0 010 4.5H9m-6-12h12.75a2.25 2.25 0 000-4.5H12" />
+                        </svg>
+                        <p class="text-xl text-espresso font-bold mb-2 uppercase tracking-widest">Brisa marina</p>
+                        <p class="text-base text-espresso/80 leading-relaxed">Sugerimos una prenda ligera para la noche.</p>
+                    </div>
                 </div>
-                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-3">Código de Vestimenta</p>
-                <p class="text-4xl text-espresso font-bold mb-6">FORMAL</p>
-                <p class="text-base text-espresso font-medium leading-relaxed max-w-sm mx-auto">
-                    Nos reservamos el color <span class="font-bold text-terracotta">Blanco</span> y tonos claros exclusivamente para la novia. Evitar sus variaciones.
-                </p>
             </div>
         </section>
         
@@ -244,7 +281,7 @@
 
         <!-- FULL WIDTH PHOTO 4 -->
         <section class="relative w-full z-10">
-            <div class="reveal w-full">
+            <div class="reveal w-full max-w-5xl mx-auto">
                 <img src="./assets/4.png" alt="Dress code" class="w-full h-auto block photo-3d">
             </div>
         </section>
@@ -291,24 +328,11 @@
 
         <!-- FULL WIDTH PHOTO 3 (Closing Photo) -->
         <section class="relative w-full z-10 mt-16 mb-16">
-            <div class="reveal w-full">
+            <div class="reveal w-full max-w-5xl mx-auto">
                 <img src="./assets/3.png" alt="Nosotros" class="w-full h-auto block photo-3d">
             </div>
         </section>
 
-        <!-- KIDS SECTION -->
-        <section class="relative px-6 py-8 text-center z-20 max-w-md mx-auto">
-            <div class="reveal">
-                <svg class="w-14 h-14 mx-auto mb-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-5">Recomendación sobre los más pequeños</p>
-                <p class="text-base text-espresso font-medium leading-relaxed">
-                    Adoramos a sus pequeños, sin embargo, este evento está destinado solo para adultos. ¡Esperamos su comprensión!
-                </p>
-            </div>
-        </section>
-        
         <!-- CLOSING & RSVP -->
         <section class="relative px-6 pb-32 text-center z-20 max-w-lg mx-auto pt-10 flex flex-col items-center">
             <!-- Center flowers closing -->
@@ -326,14 +350,14 @@
                     Con mucha alegría, queremos compartir contigo uno de los momentos más especiales de nuestras vidas. ¡Te esperamos!
                 </p>
                 <div class="flex flex-col gap-5 max-w-sm mx-auto">
-                    <a href="https://wa.me/51900000000?text=¡Hola%20Kelly!%20Confirmo%20mi%20asistencia%20a%20la%20boda%20💍" target="_blank" class="block w-full py-5 border-2 border-espresso bg-white/50 backdrop-blur-sm rounded-full text-espresso text-sm font-bold uppercase tracking-widest hover:bg-espresso hover:text-ivory transition-all shadow-md">Confirmar a: Novia</a>
-                    <a href="https://wa.me/51900000001?text=¡Hola%20John%20André!%20Confirmo%20mi%20asistencia%20a%20la%20boda%20💍" target="_blank" class="block w-full py-5 border-2 border-espresso bg-white/50 backdrop-blur-sm rounded-full text-espresso text-sm font-bold uppercase tracking-widest hover:bg-espresso hover:text-ivory transition-all shadow-md">Confirmar a: Novio</a>
+                    <a href="https://wa.me/51992161512?text=¡Hola%20Kelly!%20Confirmo%20mi%20asistencia%20a%20la%20boda%20💍" target="_blank" class="block w-full py-5 border-2 border-espresso bg-white/50 backdrop-blur-sm rounded-full text-espresso text-sm font-bold uppercase tracking-widest hover:bg-espresso hover:text-ivory transition-all shadow-md">Confirmar a: Novia</a>
+                    <a href="https://wa.me/51993806754?text=¡Hola%20John%20André!%20Confirmo%20mi%20asistencia%20a%20la%20boda%20💍" target="_blank" class="block w-full py-5 border-2 border-espresso bg-white/50 backdrop-blur-sm rounded-full text-espresso text-sm font-bold uppercase tracking-widest hover:bg-espresso hover:text-ivory transition-all shadow-md">Confirmar a: Novio</a>
                 </div>
             </div>
             
             <div class="reveal mt-20 relative z-10">
                 <img src="./assets/kelly-y-jhon.png" alt="Kelly y John André" class="max-w-[70%] mx-auto h-auto drop-shadow-sm mb-4 opacity-90">
-                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold">14 · 11 · 2026</p>
+                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold">07 · 11 · 2026</p>
             </div>
         </section>
     </main>

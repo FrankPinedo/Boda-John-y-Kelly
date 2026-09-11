@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* =========================================================================
        3. COUNTDOWN TIMER
        ========================================================================= */
-    const countDownDate = new Date("Nov 14, 2026 16:00:00").getTime();
+    const countDownDate = new Date("Nov 7, 2026 16:00:00 GMT-0500").getTime();
     const daysEl = document.getElementById("days");
     const hoursEl = document.getElementById("hours");
     const minsEl = document.getElementById("mins");
