@@ -81,15 +81,15 @@
                     <div class="absolute inset-0 bg-[#FFFFFF]" style="clip-path: polygon(0 0, 50% 52%, 100% 0); box-shadow: 0 10px 20px rgba(0,0,0,0.15);"></div>
                 </div>
                 
-                <!-- Seal -->
+                <!-- Envelope seal -->
                 <div id="envelope-seal" class="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 seal-pulse">
                     <img src="./assets/sello-cera.png" alt="Sello" class="w-20 h-20 md:w-24 md:h-24 drop-shadow-[0_8px_15px_rgba(0,0,0,0.3)] hover:brightness-110 transition-all">
                 </div>
-                
-                <!-- Instruction Message -->
-                <div class="absolute top-[80%] left-1/2 -translate-x-1/2 w-full text-center z-50 pointer-events-none">
-                    <p class="text-xs md:text-sm tracking-widest uppercase text-terracotta font-bold opacity-90 animate-pulse">Toca para descubrir nuestra historia</p>
-                </div>
+            </div>
+
+            <!-- Instruction Message below the envelope -->
+            <div class="mt-8 text-center w-full pointer-events-none">
+                <p class="text-xs md:text-sm tracking-widest uppercase text-terracotta font-bold opacity-90 animate-pulse">Toca para abrir la invitación</p>
             </div>
         </div>
     </div>
@@ -130,23 +130,23 @@
         <!-- INTRODUCTION -->
         <section class="relative px-6 py-8 text-center z-20 max-w-2xl mx-auto">
             <p class="reveal text-lg md:text-xl text-espresso font-medium leading-[1.9] mb-16">
-                Querida familia y amigos, queremos celebrar con ustedes de manera oficial que uniremos nuestras vidas. Su compañía es lo que hará este día realmente especial; los esperamos con mucha ilusión.
+                Con inmensa alegría y la bendición de Dios, queremos compartir con ustedes el inicio de esta nueva etapa en nuestras vidas. Su presencia, bendición y cariño son el regalo más valioso para celebrar la unión de nuestros caminos.
             </p>
 
             <!-- PARENTS -->
             <div class="reveal mb-16">
                 <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-4">Padres de la Novia</p>
-                <p class="text-xl text-espresso mb-1">Telefesforo Pinedo Comeca</p>
+                <p class="text-xl text-espresso mb-1">Telesforo Pinedo Comeca</p>
                 <p class="text-xl text-espresso mb-10">Aurolinda Cabañas Calampa</p>
 
                 <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-4">Madre del Novio</p>
                 <p class="text-xl text-espresso mb-12">Carmen Ada Delgado Rodríguez</p>
                 
-                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-4">Padrinos</p>
+                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-4">CON LA GUÍA DE NUESTROS PADRINOS</p>
                 <p class="text-xl text-espresso mb-1">Rodney Pinedo Cabañas</p>
                 <p class="text-xl text-espresso mb-12">Jessica Kattiana Zapata</p>
 
-                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-4">Testigos</p>
+                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-4">CON LA COMPAÑÍA DE NUESTROS TESTIGOS</p>
                 <p class="text-xl text-espresso mb-1">Kevin Cabañas Santillan</p>
                 <p class="text-xl text-espresso mb-12">Jobita Mestanza Oliva</p>
             </div>
@@ -245,14 +245,27 @@
                 <p class="text-4xl text-espresso font-bold mb-16">Detalles importantes</p>
                 
                 <div class="space-y-12 md:space-y-0 md:grid md:grid-cols-3 md:gap-8 text-center max-w-4xl mx-auto">
-                    <!-- Point 1 -->
+                    <!-- Point 1: Dress Code -->
                     <div class="flex flex-col items-center">
-                        <svg class="w-10 h-10 text-terracotta mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M12 3a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7v1H2v-1a7 7 0 0 1 7-7h1V5.73A2 2 0 0 1 12 3z"/>
-                          <circle cx="12" cy="7" r="1"/>
+                        <!-- Icono formal (Traje / Esmoquin y corbata elegante) -->
+                        <svg class="w-11 h-11 text-terracotta mb-4 drop-shadow-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 3h12l1 7-4 2-3-4-3 4-4-2 1-7z" />
+                            <path d="M9 10l3 9 3-9" />
+                            <path d="M12 2v4" />
+                            <path d="M8 22l4-3 4 3V15H8v7z" />
+                            <path d="M4 8l2 13h12l2-13" />
                         </svg>
-                        <p class="text-xl text-espresso font-bold mb-2 uppercase tracking-widest">Formal</p>
-                        <p class="text-base text-espresso/80 leading-relaxed">Elegante y cómodo para una celebración junto al mar.</p>
+                        <p class="text-xl text-espresso font-bold mb-2 uppercase tracking-widest">Código de Vestimenta</p>
+                        <p class="text-sm uppercase tracking-wider text-terracotta font-bold mb-3">Formal</p>
+                        <div class="bg-terracotta/10 border border-terracotta/25 rounded-xl p-4 text-xs text-espresso leading-relaxed shadow-sm">
+                            <p class="font-bold text-terracotta mb-1.5 uppercase tracking-wider flex items-center justify-center gap-1.5">
+                                <span>✧</span> Nota de Vestimenta <span>✧</span>
+                            </p>
+                            <p class="text-espresso/90 font-medium">
+                                Nos reservamos el color blanco y todas sus variaciones exclusivamente para la novia. Les pedimos por favor evitar sus tonalidades en lo absoluto.<br><br>
+                                <span class="italic font-semibold text-terracotta">¡Gracias por comprender y acompañarnos con tanto cariño!</span>
+                            </p>
+                        </div>
                     </div>
                     <!-- Point 2 -->
                     <div class="flex flex-col items-center">
@@ -297,29 +310,68 @@
                     Tu cariño es nuestro mejor regalo, pero si desean tener un detalle especial con nosotros, lo recibiremos con mucho amor y gratitud.
                 </p>
                 
+                <!-- BCP Soles -->
                 <div class="border border-espresso/15 rounded-lg mb-4 text-left overflow-hidden shadow-sm">
                     <button class="accordion-btn w-full px-6 py-5 flex justify-between items-center text-espresso bg-white font-bold" aria-expanded="false">
-                        <span class="text-lg">BCP</span>
+                        <span class="text-lg tracking-wide">
+                            BCP Soles
+                        </span>
                         <span class="icon-plus text-2xl font-light text-terracotta">+</span>
                     </button>
                     <div class="accordion-content bg-[#FAF8F5]">
                         <div class="px-6 py-5 space-y-4">
-                            <p class="text-xs uppercase tracking-widest text-espresso/70">Cuenta: <span class="font-bold text-espresso text-base ml-2">191-0000000-0-00</span></p>
-                            <p class="text-xs uppercase tracking-widest text-espresso/70">CCI: <span class="font-bold text-espresso text-base ml-2">002191000000000000</span></p>
-                            <p class="text-xs uppercase tracking-widest text-espresso/70">Titular: <span class="font-bold text-terracotta text-base ml-2">Kelly Pinedo</span></p>
+                            <div class="flex items-center justify-between gap-3">
+                                <div>
+                                    <span class="text-xs uppercase tracking-widest text-espresso/70 block mb-0.5">N° de Cuenta:</span>
+                                    <span class="font-bold text-espresso text-base select-all font-mono">47531172257086</span>
+                                </div>
+                                <button type="button" class="copy-btn p-2 text-espresso/70 hover:text-terracotta hover:bg-espresso/5 rounded-md transition-colors" title="Copiar número de cuenta" aria-label="Copiar número de cuenta" data-copy="47531172257086">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                                </button>
+                            </div>
+
+                            <div class="flex items-center justify-between gap-3 pt-3 border-t border-espresso/10">
+                                <div>
+                                    <span class="text-xs uppercase tracking-widest text-espresso/70 block mb-0.5">CCI (Interbancaria):</span>
+                                    <span class="font-bold text-espresso text-base select-all font-mono">00247513117225708628</span>
+                                </div>
+                                <button type="button" class="copy-btn p-2 text-espresso/70 hover:text-terracotta hover:bg-espresso/5 rounded-md transition-colors" title="Copiar CCI" aria-label="Copiar CCI" data-copy="00247513117225708628">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                                </button>
+                            </div>
+
+                            <div class="pt-3 border-t border-espresso/10">
+                                <span class="text-xs uppercase tracking-widest text-espresso/70 block mb-0.5">Titular:</span>
+                                <span class="font-bold text-terracotta text-base">Kelly Pinedo Cabañas</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Yape -->
                 <div class="border border-espresso/15 rounded-lg text-left overflow-hidden shadow-sm">
                     <button class="accordion-btn w-full px-6 py-5 flex justify-between items-center text-espresso bg-white font-bold" aria-expanded="false">
-                        <span class="text-lg">Interbank</span>
+                        <span class="text-lg tracking-wide">
+                            Yape
+                        </span>
                         <span class="icon-plus text-2xl font-light text-terracotta">+</span>
                     </button>
                     <div class="accordion-content bg-[#FAF8F5]">
                         <div class="px-6 py-5 space-y-4">
-                            <p class="text-xs uppercase tracking-widest text-espresso/70">Cuenta: <span class="font-bold text-espresso text-base ml-2">200-0000000-0-00</span></p>
-                            <p class="text-xs uppercase tracking-widest text-espresso/70">CCI: <span class="font-bold text-espresso text-base ml-2">003200000000000000</span></p>
-                            <p class="text-xs uppercase tracking-widest text-espresso/70">Titular: <span class="font-bold text-terracotta text-base ml-2">John André Vera</span></p>
+                            <div class="flex items-center justify-between gap-3">
+                                <div>
+                                    <span class="text-xs uppercase tracking-widest text-espresso/70 block mb-0.5">Número Yape:</span>
+                                    <span class="font-bold text-espresso text-lg select-all font-mono">992 161 512</span>
+                                </div>
+                                <button type="button" class="copy-btn p-2 text-espresso/70 hover:text-terracotta hover:bg-espresso/5 rounded-md transition-colors" title="Copiar número de Yape" aria-label="Copiar número de Yape" data-copy="992161512">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                                </button>
+                            </div>
+
+                            <div class="pt-3 border-t border-espresso/10">
+                                <span class="text-xs uppercase tracking-widest text-espresso/70 block mb-0.5">Titular:</span>
+                                <span class="font-bold text-terracotta text-base">Kelly Pinedo</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -339,19 +391,23 @@
             <img src="./assets/flores-centro.png" alt="" class="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 md:w-56 opacity-80 pointer-events-none z-0">
             
             <div class="reveal mb-16 relative z-10">
-                <p class="text-xl text-espresso font-medium italic mb-10 max-w-sm mx-auto leading-[1.8]">
-                    "Nuestro amor es la promesa que sembramos en silencio y que, día tras día, florece con la verdad de dos almas que eligieron caminar juntas para siempre."
+                <p class="text-xl text-espresso font-medium italic mb-10 max-w-md mx-auto leading-[1.9]">
+                    “Bajo el cielo y frente a la inmensidad del mar, unimos nuestras vidas en una sola promesa: amarnos, honrarnos y caminar juntos en cada paso de nuestro destino.”
                 </p>
                 <svg class="w-12 h-12 mx-auto mb-5 text-terracotta drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                 </svg>
-                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-5">Confirmación</p>
-                <p class="text-base text-espresso font-medium mb-10 leading-[1.7]">
-                    Con mucha alegría, queremos compartir contigo uno de los momentos más especiales de nuestras vidas. ¡Te esperamos!
+                <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-4">Confirmación de Asistencia</p>
+                <p class="text-base text-espresso font-medium mb-8 leading-[1.8]">
+                    Para nosotros es un honor contar con su presencia en este día tan significativo. Agradecemos confirmar su gentil asistencia.
                 </p>
-                <div class="flex flex-col gap-5 max-w-sm mx-auto">
-                    <a href="https://wa.me/51992161512?text=¡Hola%20Kelly!%20Confirmo%20mi%20asistencia%20a%20la%20boda%20💍" target="_blank" class="block w-full py-5 border-2 border-espresso bg-white/50 backdrop-blur-sm rounded-full text-espresso text-sm font-bold uppercase tracking-widest hover:bg-espresso hover:text-ivory transition-all shadow-md">Confirmar a: Novia</a>
-                    <a href="https://wa.me/51993806754?text=¡Hola%20John%20André!%20Confirmo%20mi%20asistencia%20a%20la%20boda%20💍" target="_blank" class="block w-full py-5 border-2 border-espresso bg-white/50 backdrop-blur-sm rounded-full text-espresso text-sm font-bold uppercase tracking-widest hover:bg-espresso hover:text-ivory transition-all shadow-md">Confirmar a: Novio</a>
+                <div class="flex flex-col gap-4 max-w-md mx-auto">
+                    <a href="https://wa.me/51992161512?text=%C2%A1Hola%20Kelly!%20%F0%9F%A4%B5%E2%80%8D%E2%99%80%EF%B8%8F%E2%9C%A8%0A%0AMe%20comunico%20para%20confirmar%20mi%20asistencia%20a%20su%20boda%3A%0A%0A%E2%80%A2%20Nombre%20y%20Apellido%3A%20%0A%E2%80%A2%20%C2%BFConfirma%20asistencia%3F%3A%20%5BS%C3%AD%20confirmo%20%2F%20No%20podr%C3%A9%20asistir%5D%0A%E2%80%A2%20N%C3%BAmero%20de%20personas%20%2F%20acompa%C3%B1antes%3A%20%0A%0A%C2%A1Muchas%20felicidades%20y%20bendiciones!" target="_blank" class="block w-full py-5 px-6 border-2 border-espresso bg-espresso text-ivory rounded-full text-sm font-bold uppercase tracking-widest hover:bg-terracotta hover:border-terracotta transition-all shadow-lg flex items-center justify-center gap-3">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.966.536 1.761.815 2.796.815 3.182 0 5.768-2.586 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.503-4.497 10-10 10-1.776 0-3.437-.468-4.882-1.284l-5.118 1.346 1.373-5.006c-.927-1.503-1.464-3.268-1.464-5.056 0-5.503 4.497-10 10-10s10 4.497 10 10z"/>
+                        </svg>
+                        Confirmar mi asistencia
+                    </a>
                 </div>
             </div>
             

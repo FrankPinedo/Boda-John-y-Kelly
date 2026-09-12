@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateCountdown, 1000);
 
     /* =========================================================================
-       4. ACCORDION (GIFTS SECTION)
+       4. ACCORDION (GIFTS SECTION) & QUICK COPY
        ========================================================================= */
     const accordionBtns = document.querySelectorAll('.accordion-btn');
     accordionBtns.forEach(btn => {
@@ -184,6 +184,43 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             this.setAttribute('aria-expanded', !isExpanded);
+        });
+    });
+
+    // Botones de Copiado Rápido (Minimalista)
+    const copyBtns = document.querySelectorAll('.copy-btn');
+    copyBtns.forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+            e.stopPropagation();
+            const textToCopy = btn.getAttribute('data-copy');
+            if (!textToCopy) return;
+
+            const originalHTML = btn.innerHTML;
+            const checkIconHTML = `<svg class="w-4 h-4 text-terracotta transition-transform scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>`;
+
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(textToCopy);
+                } else {
+                    const tempTextArea = document.createElement('textarea');
+                    tempTextArea.value = textToCopy;
+                    tempTextArea.style.position = 'fixed';
+                    tempTextArea.style.opacity = '0';
+                    document.body.appendChild(tempTextArea);
+                    tempTextArea.focus();
+                    tempTextArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempTextArea);
+                }
+
+                btn.innerHTML = checkIconHTML;
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                }, 1600);
+            } catch (err) {
+                console.error('Error al copiar:', err);
+            }
         });
     });
 
