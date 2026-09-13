@@ -15,6 +15,40 @@ html, body {
 body {
     color: var(--espresso);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* Efecto Letterpress / Grabado en Papel Artesanal (Más notorio y profundo) */
+main#main-content p,
+main#main-content span,
+main#main-content a,
+main#main-content button,
+main#main-content h1,
+main#main-content h2,
+main#main-content h3 {
+    text-shadow: 0 1.5px 1px rgba(255, 255, 255, 0.95),
+                 0 2px 4px rgba(255, 255, 255, 0.6),
+                 0 -1px 2px rgba(62, 39, 35, 0.35),
+                 1px 1px 2px rgba(62, 39, 35, 0.15);
+}
+
+/* Títulos terracota con grabado más profundo */
+main#main-content .text-terracotta {
+    text-shadow: 0 1.5px 1px rgba(255, 255, 255, 0.95),
+                 0 2px 5px rgba(255, 255, 255, 0.7),
+                 0 -1px 2px rgba(141, 64, 36, 0.45),
+                 1px 1px 2px rgba(62, 39, 35, 0.2);
+}
+
+/* Números grandes y títulos de alto impacto */
+main#main-content .text-2xl,
+main#main-content .text-3xl,
+main#main-content .text-4xl,
+main#main-content .text-7xl {
+    text-shadow: 0 2px 1px rgba(255, 255, 255, 1),
+                 0 3px 6px rgba(255, 255, 255, 0.8),
+                 0 -1.5px 2.5px rgba(62, 39, 35, 0.45),
+                 2px 2px 4px rgba(62, 39, 35, 0.25);
 }
 
 .bg-fixed-wedding {
@@ -85,15 +119,19 @@ body.no-scroll {
     opacity: 0;
 }
 
-/* Seal Pulse Animation */
-@keyframes pulse {
-    0% { transform: scale(1) translate(-50%, -50%); }
-    50% { transform: scale(1.08) translate(-46%, -46%); }
-    100% { transform: scale(1) translate(-50%, -50%); }
+/* Seal Breathing / Scale Animation (Suave, fluido y 100% opaco) */
+@keyframes sealBreathe {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.09);
+    }
 }
 
 .seal-pulse {
-    animation: pulse 2s infinite cubic-bezier(0.25, 0.1, 0.25, 1);
+    animation: sealBreathe 2.4s ease-in-out infinite;
+    opacity: 1 !important;
 }
 
 /* Custom 3D Drop Shadow for PNG photos */
