@@ -231,3 +231,15 @@ body.no-scroll {
 .icon-plus {
     transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
+
+main#main-content button.bg-espresso, 
+main#main-content a.bg-espresso,
+main#main-content .rsvp-option-btn.active {
+    text-shadow: none !important;
+}
+.rsvp-option-btn.active {
+    background-color: var(--espresso) !important;
+    color: var(--ivory) !important;
+    border-color: var(--espresso) !important;
+}
+

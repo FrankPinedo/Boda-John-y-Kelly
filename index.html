@@ -398,16 +398,49 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                 </svg>
                 <p class="text-sm tracking-ultrawide uppercase text-terracotta font-bold mb-4">Confirmación de Asistencia</p>
-                <p class="text-base text-espresso font-medium mb-8 leading-[1.8]">
-                    Para nosotros es un honor contar con su presencia en este día tan significativo. Agradecemos confirmar su gentil asistencia.
-                </p>
-                <div class="flex flex-col gap-4 max-w-md mx-auto">
-                    <a href="https://wa.me/51992161512?text=%C2%A1Hola%20Kelly!%20%F0%9F%A4%B5%E2%80%8D%E2%99%80%EF%B8%8F%E2%9C%A8%0A%0AMe%20comunico%20para%20confirmar%20mi%20asistencia%20a%20su%20boda%3A%0A%0A%E2%80%A2%20Nombre%20y%20Apellido%3A%20%0A%E2%80%A2%20%C2%BFConfirma%20asistencia%3F%3A%20%5BS%C3%AD%20confirmo%20%2F%20No%20podr%C3%A9%20asistir%5D%0A%E2%80%A2%20N%C3%BAmero%20de%20personas%20%2F%20acompa%C3%B1antes%3A%20%0A%0A%C2%A1Muchas%20felicidades%20y%20bendiciones!" target="_blank" class="block w-full py-5 px-6 border-2 border-espresso bg-espresso text-ivory rounded-full text-sm font-bold uppercase tracking-widest hover:bg-terracotta hover:border-terracotta transition-all shadow-lg flex items-center justify-center gap-3">
+                
+                <div id="rsvp-container" class="w-full transition-opacity duration-500">
+                    <p class="text-base text-espresso font-medium mb-8 leading-[1.8]">
+                        ¿Nos acompañas en este día tan especial?<br>
+                        Nos hará muy felices compartir este momento contigo.<br>
+                        Agradeceremos confirmar su asistencia hasta el <strong class="font-bold text-terracotta">15 de octubre de 2026</strong>.
+                    </p>
+                    
+                    <div id="rsvp-options" class="flex flex-col gap-4 max-w-md mx-auto mb-8">
+                        <button type="button" id="btn-yes" class="rsvp-option-btn block w-full py-4 px-6 border-2 border-espresso/20 text-espresso bg-transparent rounded-xl text-sm font-bold uppercase tracking-widest hover:border-espresso hover:bg-espresso/5 transition-all">
+                            Sí, asistiré 🤍
+                        </button>
+                        <button type="button" id="btn-no" class="rsvp-option-btn block w-full py-4 px-6 border-2 border-espresso/20 text-espresso bg-transparent rounded-xl text-sm font-bold uppercase tracking-widest hover:border-espresso hover:bg-espresso/5 transition-all">
+                            No podré acompañarlos
+                        </button>
+                    </div>
+
+                    <div id="rsvp-quantity-section" class="hidden flex-col items-center justify-center gap-3 mb-8 transition-all duration-300 opacity-0 transform -translate-y-4 w-full">
+                        <p class="text-sm tracking-widest uppercase text-terracotta font-bold text-center w-full">¿Cuántas personas asistirán?</p>
+                        <div class="flex items-center justify-center gap-6 mt-2 w-full">
+                            <button type="button" id="btn-minus" class="w-12 h-12 rounded-full border border-espresso/30 flex items-center justify-center text-espresso text-2xl hover:bg-espresso/10 transition-colors focus:outline-none focus:ring-2 focus:ring-terracotta focus:ring-offset-2 focus:ring-offset-[#F4EFEB]">−</button>
+                            <span id="rsvp-count" class="text-4xl font-bold text-espresso w-10 text-center" aria-live="polite">2</span>
+                            <button type="button" id="btn-plus" class="w-12 h-12 rounded-full border border-espresso/30 flex items-center justify-center text-espresso text-2xl hover:bg-espresso/10 transition-colors focus:outline-none focus:ring-2 focus:ring-terracotta focus:ring-offset-2 focus:ring-offset-[#F4EFEB]">+</button>
+                        </div>
+                        <p id="rsvp-count-text" class="text-sm text-espresso font-medium mt-1 tracking-widest uppercase text-center w-full">2 personas</p>
+                    </div>
+
+                    <div id="rsvp-feedback-msg" class="hidden text-sm text-terracotta font-bold mb-4 tracking-widest uppercase transition-opacity"></div>
+
+                    <button type="button" id="btn-confirm-rsvp" class="block w-full max-w-md mx-auto py-5 px-6 border-2 border-espresso bg-espresso text-ivory rounded-full text-sm font-bold uppercase tracking-widest hover:bg-terracotta hover:border-terracotta transition-all shadow-lg flex items-center justify-center gap-3 focus:outline-none focus:ring-2 focus:ring-terracotta focus:ring-offset-2 focus:ring-offset-[#F4EFEB]">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                             <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.966.536 1.761.815 2.796.815 3.182 0 5.768-2.586 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.503-4.497 10-10 10-1.776 0-3.437-.468-4.882-1.284l-5.118 1.346 1.373-5.006c-.927-1.503-1.464-3.268-1.464-5.056 0-5.503 4.497-10 10-10s10 4.497 10 10z"/>
                         </svg>
-                        Confirmar mi asistencia
-                    </a>
+                        Confirmar mi respuesta
+                    </button>
+                </div>
+                
+                <div id="rsvp-closed" class="hidden w-full transition-opacity duration-500">
+                    <p class="text-base text-espresso font-medium mb-8 leading-[1.8]">
+                        <strong class="font-bold text-lg block mb-2 uppercase tracking-widest text-terracotta">Confirmaciones cerradas</strong>
+                        El plazo para confirmar asistencia ha finalizado.<br><br>
+                        Muchas gracias por acompañarnos en este momento tan especial. 🤍
+                    </p>
                 </div>
             </div>
             

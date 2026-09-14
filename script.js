@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
 
     /* =========================================================================
        1. ENVELOPE ANIMATION & AUDIO INITIATION
@@ -253,5 +253,119 @@ document.addEventListener('DOMContentLoaded', () => {
         petal.style.animationDelay = `${delay}s`;
 
         petalsContainer.appendChild(petal);
+    }
+    /* =========================================================================
+       4. RSVP SYSTEM LOGIC
+       ========================================================================= */
+    const RSVP_DEADLINE = '2026-10-15';
+    const WHATSAPP_NUMBER = '51992161512';
+    
+    const rsvpContainer = document.getElementById('rsvp-container');
+    const rsvpClosed = document.getElementById('rsvp-closed');
+    const btnYes = document.getElementById('btn-yes');
+    const btnNo = document.getElementById('btn-no');
+    const quantitySection = document.getElementById('rsvp-quantity-section');
+    const btnMinus = document.getElementById('btn-minus');
+    const btnPlus = document.getElementById('btn-plus');
+    const countDisplay = document.getElementById('rsvp-count');
+    const countText = document.getElementById('rsvp-count-text');
+    const btnConfirm = document.getElementById('btn-confirm-rsvp');
+    const feedbackMsg = document.getElementById('rsvp-feedback-msg');
+
+    let rsvpSelection = null;
+    let rsvpQuantity = 2;
+    const MIN_GUESTS = 1;
+    const MAX_GUESTS = 5;
+
+    function checkDeadline() {
+        const today = new Date();
+        const deadlineDate = new Date(RSVP_DEADLINE + 'T23:59:59');
+        
+        if (today > deadlineDate) {
+            if(rsvpContainer) {
+                rsvpContainer.style.display = 'none';
+                rsvpClosed.classList.remove('hidden');
+                rsvpClosed.style.display = 'block';
+            }
+            return true;
+        }
+        return false;
+    }
+
+    if(rsvpContainer && !checkDeadline()) {
+        btnYes.addEventListener('click', () => {
+            rsvpSelection = 'yes';
+            btnYes.classList.add('active');
+            btnNo.classList.remove('active');
+            feedbackMsg.classList.add('hidden');
+            
+            quantitySection.classList.remove('hidden');
+            setTimeout(() => {
+                quantitySection.classList.remove('opacity-0', '-translate-y-4');
+            }, 10);
+        });
+
+        btnNo.addEventListener('click', () => {
+            rsvpSelection = 'no';
+            btnNo.classList.add('active');
+            btnYes.classList.remove('active');
+            feedbackMsg.classList.add('hidden');
+            
+            quantitySection.classList.add('opacity-0', '-translate-y-4');
+            setTimeout(() => {
+                quantitySection.classList.add('hidden');
+            }, 300);
+        });
+
+        const updateQuantityDisplay = () => {
+            countDisplay.textContent = rsvpQuantity;
+            countText.textContent = rsvpQuantity === 1 ? '1 persona' : rsvpQuantity + ' personas';
+        };
+
+        btnMinus.addEventListener('click', () => {
+            if (rsvpQuantity > MIN_GUESTS) {
+                rsvpQuantity--;
+                updateQuantityDisplay();
+            }
+        });
+
+        btnPlus.addEventListener('click', () => {
+            if (rsvpQuantity < MAX_GUESTS) {
+                rsvpQuantity++;
+                updateQuantityDisplay();
+            }
+        });
+
+        btnConfirm.addEventListener('click', () => {
+            if (!rsvpSelection) {
+                feedbackMsg.textContent = 'Por favor, indícanos si podrás acompañarnos.';
+                feedbackMsg.classList.remove('hidden');
+                return;
+            }
+
+            feedbackMsg.classList.add('hidden');
+            
+            const originalContent = btnConfirm.innerHTML;
+            btnConfirm.innerHTML = '¡Gracias por confirmar! 🤍';
+            btnConfirm.disabled = true;
+
+            setTimeout(() => {
+                let message = '';
+                if (rsvpSelection === 'yes') {
+                    const personText = rsvpQuantity === 1 ? 'Asistiré como 1 persona' : 'Seremos ' + rsvpQuantity + ' personas';
+                    message = 'Hola Kelly y John 🤍\n\nMuchas gracias por la invitación. Con mucha alegría queremos confirmar que sí podremos acompañarlos en este día tan especial. ✨\n\n' + personText + '.\n\nNos hace mucha ilusión compartir con ustedes este momento tan importante. 🥂🤍\n\n¡Nos vemos para celebrar juntos! ✨';
+                } else {
+                    message = 'Hola Kelly y John 🤍\n\nMuchas gracias por la invitación y por hacernos partícipes de este momento tan especial.\n\nLamentablemente, en esta ocasión no podremos acompañarlos, pero queremos enviarles nuestros mejores deseos en este día tan importante. ✨\n\nQue esta nueva etapa esté siempre llena de amor, felicidad y momentos inolvidables. 🤍\n\nUn abrazo y muchas felicidades. 🥂';
+                }
+
+                const waUrl = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message);
+                window.open(waUrl, '_blank');
+                
+                setTimeout(() => {
+                    btnConfirm.innerHTML = originalContent;
+                    btnConfirm.disabled = false;
+                }, 2000);
+            }, 800);
+        });
     }
 });
